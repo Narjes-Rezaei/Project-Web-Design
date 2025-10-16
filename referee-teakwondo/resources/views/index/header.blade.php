@@ -4,7 +4,7 @@
         <div class="d-flex align-items-center">
           <div class="site-logo">
             <a href="index.html">
-              <img src="index/images/logo.png" alt="Logo">
+              <!-- <img src="index/images/logo.png" alt="Logo"> -->
             </a>
           </div>
           <div class="ml-auto">
