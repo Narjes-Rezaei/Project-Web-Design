@@ -10,12 +10,14 @@
           <div class="ml-auto">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="{{ route('/') }}" class="btn btn-outline-danger nav-link">Home</a></li>
-                <li><a href="{{ route('matches') }}" class="btn btn-outline-primary nav-link">Matches</a></li>
-                <li><a href="{{ route('players') }}" class="nav-link">Players</a></li>
-                <li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
-                <li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-                <li><a style="color: black;" href="{{ route('zodiac') }}" class="nav-link">Admin</a></li>
+                <li><a href="{{ route('/') }}" class="btn btn-primary nav-link">Home</a></li>
+                <li><a href="{{ route('matches') }}" class="btn btn-primary nav-link">Matches</a></li>
+                <li><a href="{{ route('players') }}" class="btn btn-primary nav-link">Players</a></li>
+                <li><a href="{{ route('blog') }}" class="btn btn-primary nav-link">Blog</a></li>
+                <li><a href="{{ route('contact') }}" class="btn btn-primary nav-link">Contact</a></li>
+                <li><a style="color: black;" href="{{ route('zodiac') }}" class="btn btn-primary nav-link">Admin</a></li>
+                <li><a style="color: white;" href="{{ route('login') }}" class="btn btn-primary nav-link">Sign in</a></li>
+                <li><a style="color: white;" href="{{ route('register') }}" class="btn btn-primary nav-link">Sign up</a></li>
               </ul>
             </nav>
 

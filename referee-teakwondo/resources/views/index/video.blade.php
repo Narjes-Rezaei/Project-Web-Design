@@ -14,88 +14,25 @@
                 </div>
 
 
-                <div class="owl-4-slider owl-carousel">
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_1.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Dogba set for Juvendu return?</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_2.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_3.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+    <div class="owl-4-slider owl-carousel">
 
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_1.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Dogba set for Juvendu return?</h3>
-                                </div>
-                            </a>
-                        </div>
+    @foreach($matchVideos as $matchVideo)
+        <div class="item">
+            <div class="video-media">
+                <img src="{{ asset('coverMatchVideo/' . $matchVideo->image) }}" alt="Image" class="img-fluid">
+                <a href="{{ $matchVideo->video }}" class="d-flex play-button align-items-center">
+                    <span class="icon mr-3">
+                        <span class="icon-play"></span>
+                    </span>
+                    <div class="caption">
+                        <h3 class="m-0">{{ $matchVideo->title }}</h3>
                     </div>
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_2.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="video-media">
-                            <img src="index/images/img_3.jpg" alt="Image" class="img-fluid">
-                            <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                                <span class="icon mr-3">
-                                    <span class="icon-play"></span>
-                                </span>
-                                <div class="caption">
-                                    <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                </a>
+            </div>
+        </div>
+    @endforeach
 
-                </div>
+</div>
 
             </div>
         </div>
