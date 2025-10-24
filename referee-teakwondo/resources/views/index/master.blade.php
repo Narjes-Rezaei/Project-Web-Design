@@ -27,6 +27,9 @@
 
     <link rel="stylesheet" href="index/css/style.css">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
 
 
 </head>
@@ -43,7 +46,8 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-
+        
+        @include('index.alerts.alerts')
 
         @include('index.header')
 

@@ -83,6 +83,9 @@
       </div>
     </div>
   </nav> -->
+
+  @include('index.alerts.alerts')
+  
   <!-- End Navbar -->
   <main class="main-content  mt-0">
     <div class="page-header align-items-start pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('index/images/backgroundSignUp.jpg');">
@@ -175,7 +178,7 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                  <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                 </div>
                 <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;" class="text-dark font-weight-bolder">Sign in</a></p>
               </form>
