@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 // });
  // index
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin/master');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/',[MasterController::class , 'master'])->name('/');

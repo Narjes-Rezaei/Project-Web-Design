@@ -30,7 +30,6 @@ class RegisterUserRequest extends FormRequest
             'phone' => ['required', 'regex:/^(09\d{9}|\+98\d{10})$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', Rules\Password::defaults()],
-            'image' => ['image','mimes:jpg,png,jpeg','max:2048']
         ];
     }
 }

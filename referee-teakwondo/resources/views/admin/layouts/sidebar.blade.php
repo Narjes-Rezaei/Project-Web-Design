@@ -8,9 +8,17 @@
       <div class="profile-desc">
         <div class="profile-pic">
           <div class="count-indicator">
+            <img class="img-xs rounded-circle " src="{{ Auth::user()->image ? asset('userProfile/'.Auth::user()->image) : asset('userProfile/profile.png')}}" alt="">
             <span class="count bg-success"></span>
           </div>
           <div class="profile-name">
+            <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }} {{ Auth::user()->family }}</h5>
+            <span> @if (Auth::user()->super_user)
+              Super User
+              @elseif (Auth::user()->sttaf)
+              Staff
+              @endif
+            </span>
           </div>
         </div>
         <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
