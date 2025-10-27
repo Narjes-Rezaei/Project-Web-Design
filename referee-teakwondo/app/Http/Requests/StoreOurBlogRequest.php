@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreMatchVideoRequest extends FormRequest
+class StoreOurBlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +21,11 @@ class StoreMatchVideoRequest extends FormRequest
      */
     public function rules(): array
     {
-                return [
+        return [
             'image' => ['required', 'image', 'mimes:jpg,png,jpeg', 'max:2048'],
-            'title' => ['required','max:500'],
-            'video' => ['required', 'url'],
+            'title' => ['required', 'max:250'],
+            'text' => ['required', 'max:500'],
+            'link' => ['required', 'url'],
         ];
-
     }
 }

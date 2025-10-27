@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Home\MatchVideo;
+use App\Models\OurBlog;
 
 class MasterController extends Controller
 {
     function master(){
         $matchVideos = MatchVideo::orderBy('created_at', 'desc')->get();
-        return view('index/master')->with('matchVideos', $matchVideos);
+
+        $ourBlogs = OurBlog::orderBy('created_at', 'desc')->get();
+
+
+        return view('index/master')->with('matchVideos', $matchVideos)->with('ourBlogs', $ourBlogs);
     }
 
     function matches(){

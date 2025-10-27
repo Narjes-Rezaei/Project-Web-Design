@@ -16,8 +16,6 @@
                 <li><a href="{{ route('blog') }}" class="btn btn-primary nav-link">Blog</a></li>
                 <li><a href="{{ route('contact') }}" class="btn btn-primary nav-link">Contact</a></li>
                 <li><a style="color: black;" href="{{ route('zodiac') }}" class="btn btn-primary nav-link">Admin</a></li>
-                <li><a style="color: white;" href="{{ route('login') }}" class="btn btn-primary nav-link">Sign in</a></li>
-                <li><a style="color: white;" href="{{ route('register') }}" class="btn btn-primary nav-link">Sign up</a></li>
               </ul>
             </nav>
 

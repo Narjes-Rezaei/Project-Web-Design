@@ -55,11 +55,13 @@
 
         @include('index.last-result')
 
-        @include('index.latest-news')
+        @include('index.video')
+
+        <!-- @include('index.latest-news') -->
 
         @include('index.next-match')
 
-        @include('index.video')
+        
 
         @include('index.our-blog')
 

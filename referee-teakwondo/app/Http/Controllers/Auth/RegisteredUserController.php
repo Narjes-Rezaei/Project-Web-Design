@@ -18,7 +18,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.sign-up');
+        return view('auth.sign');
     }
 
     /**
@@ -29,7 +29,7 @@ class RegisteredUserController extends Controller
     public function store(RegisterUserRequest $request): RedirectResponse
     {
 
-        $request->validated();
+        // $request->validated();
 
         $user = new User();
         $user->name = $request->name;

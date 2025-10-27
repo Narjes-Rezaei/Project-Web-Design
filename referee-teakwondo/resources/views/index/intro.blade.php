@@ -1,4 +1,4 @@
-<div class="hero overlay" style="background-image: url('index/images/bg_3.jpg');">
+<div class="hero overlay" style="background-image: url('sign/img/bgt.jpg');">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 ml-auto">
@@ -6,7 +6,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae pariatur.</p>
             <div id="date-countdown"></div>
             <p>
-              <a href="#" class="btn btn-primary py-3 px-4 mr-3">Book Ticket</a>
+              <a href="{{ route('register') }}" class="btn btn-primary py-3 px-4 mr-3">Sign In/Sign Up</a>
               <a href="#" class="more light">Learn More</a>
             </p>  
           </div>
