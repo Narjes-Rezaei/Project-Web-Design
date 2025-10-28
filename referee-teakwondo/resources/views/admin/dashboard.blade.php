@@ -16,6 +16,9 @@
                         <input type="text" id="userSearch" class="form-control text-center" placeholder="Search by name and family" style="color: white;" class="form-control todo-list-input">
                     </div>
                     <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
+                        <a href="{{ route('add-user') }}" class="btn btn-success">+ Add User</a>
+                    </div>
+                    <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
                     </div>
                 </div>
 
@@ -54,6 +57,14 @@
                                             <i class="input-helper"></i>
                                         </label>
                                     </div>
+                                </td>
+                                <td>
+                                    <a href="{{ route('edit-user',['id'=>$user->id]) }}">
+                                            <button type="button" class="btn btn-outline-warning">Edit</button>
+                                        </a>
+                                        <a onclick="alertDelet({{ $user->id }})">
+                                            <button type="button" class="btn btn-outline-danger">Delete</button>
+                                        </a>
                                 </td>
                             </tr>
                             @endforeach

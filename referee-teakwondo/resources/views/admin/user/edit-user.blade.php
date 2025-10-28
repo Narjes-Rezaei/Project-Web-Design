@@ -7,22 +7,19 @@
                 @csrf
 
                 <label class="sr-only" for="inlineFormInputName2">Name</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Nature" style="color: white;" name="name" value="{{ old('name',$user->name) }}">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter your name" style="color: white;" name="name" value="{{ old('name',$user->name) }}">
 
                 <label class="sr-only" for="inlineFormInputName2">Family</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Social Media" style="color: white;" name="family" value="{{ old('name',$user->family) }}">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Enter your family" style="color: white;" name="family" value="{{ old('name',$user->family) }}">
 
                 <label class="sr-only" for="inlineFormInputName2">Phone</label>
-                <input type="phone" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Social Media" style="color: white;" name="phone" value="{{ old('phone',$user->phone) }}">
+                <input type="phone" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="0918 000 00 00" style="color: white;" name="phone" value="{{ old('phone',$user->phone) }}">
                 
                 <label class="sr-only" for="inlineFormInputName2">Email</label>
-                <input type="email" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Social Media" style="color: white;" name="email" value="{{ old('email',$user->email) }}">
+                <input type="email" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="teakwondo@gmail.com" style="color: white;" name="email" value="{{ old('email',$user->email) }}">
 
                 <label class="sr-only" for="inlineFormInputName2">Password</label>
                 <input type="password" name="password" id="pass" placeholder="Password" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" />
-                
-                <label class="sr-only" for="inlineFormInputName2">Repeat password</label>
-                <input type="password" name="password_confirmation" id="re_pass" placeholder="Repeat your password" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" />
 
 
                 <label class="sr-only" for="inlineFormInputName2">Photo</label>

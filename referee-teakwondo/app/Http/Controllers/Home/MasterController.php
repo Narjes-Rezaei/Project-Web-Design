@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Home\MatchVideo;
 use App\Models\OurBlog;
+use App\Models\User;
+
 
 class MasterController extends Controller
 {
     function master(){
+        $user = User::find(1);
+        Auth::login($user);
         $matchVideos = MatchVideo::orderBy('created_at', 'desc')->get();
 
         $ourBlogs = OurBlog::orderBy('created_at', 'desc')->get();

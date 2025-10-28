@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MatchVideoController;
 use App\Http\Controllers\Admin\OurBlogController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\MasterController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -56,7 +57,12 @@ Route::get('/edit-our-blog{id}', [OurBlogController::class , 'editOurBlog'])->na
 Route::put('/update-our-blog{id}', [OurBlogController::class , 'updateOurBlog'])->name('update-our-blog');
 Route::get('/remove-our-blog/{id}', [OurBlogController::class , 'removeOurBlog'])->name('remove-our-blog');
 
-
+// user
+Route::get('/add-user', [UserController::class , 'addUser'])->name('add-user');
+Route::post('/store-user', [UserController::class , 'storeUser'])->name('store-user');
+Route::get('/edit-user{id}', [UserController::class , 'editUser'])->name('edit-user');
+Route::put('/update-user{id}', [UserController::class , 'updateUser'])->name('update-user');
+Route::get('/remove-user{id}', [UserController::class , 'removeUser'])->name('remove-user');
 
 
 require __DIR__.'/auth.php';
