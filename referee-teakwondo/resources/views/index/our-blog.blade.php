@@ -1,4 +1,4 @@
-        <div class="container site-section">
+        <div class="container site-section" id="our">
             <div class="row">
                 <div class="col-6 title-section">
                     <h2 class="heading">Our Blog</h2>

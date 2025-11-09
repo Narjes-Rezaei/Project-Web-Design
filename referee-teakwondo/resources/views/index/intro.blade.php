@@ -1,4 +1,4 @@
-<div class="hero overlay" style="background-image: url('sign/img/bgt.jpg');">
+<div class="hero overlay" style="background-image: url('sign/img/bgt.jpg');" id="intro">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-5 ml-auto">

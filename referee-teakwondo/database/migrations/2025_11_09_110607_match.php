@@ -11,25 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('domestic_competitions', function (Blueprint $table) {
+        Schema::create('matchs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('referee_id');
             $table->unsignedBigInteger('event_type_id');
             $table->string('event_title');
-            $table->string('event_date');
-            $table->string('days_count');
-            $table->integer('birth_year');
-            $table->unsignedBigInteger('gender_id');
+            $table->dateTime('event_date');
+            $table->dateTime('event_date');
+            $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('province_id');
-            $table->string('image')->nullable();
-            $table->string('email');
-            $table->string('phone');
-            $table->string('password');
             $table->timestamps();
 
 
-            $table->foreign('degree_id')->references('id')->on('degrees')->onDelete('cascade');
-            $table->foreign('gender_id')->references('id')->on('genders')->onDelete('cascade');
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade');
         });
     }
