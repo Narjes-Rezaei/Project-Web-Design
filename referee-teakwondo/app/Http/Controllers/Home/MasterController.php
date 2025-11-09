@@ -12,8 +12,8 @@ use App\Models\User;
 class MasterController extends Controller
 {
     function master(){
-        $user = User::find(1);
-        Auth::login($user);
+        // $user = User::find(1);
+        // Auth::login($user);
         $matchVideos = MatchVideo::orderBy('created_at', 'desc')->get();
 
         $ourBlogs = OurBlog::orderBy('created_at', 'desc')->get();

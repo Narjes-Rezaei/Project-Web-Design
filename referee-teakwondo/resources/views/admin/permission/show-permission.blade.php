@@ -58,9 +58,7 @@
         <div class="card-body">
             <div class="flex">
                 <h4 class="card-title">Permission table</h4>
-                @can('add-permission')
                 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-permission') }}">+ Add Permission</a>
-                @endcan
                 <br>
             </div>
             <div class="table-responsive">
@@ -78,12 +76,8 @@
                             <td>{{ $permission->name }}</td>
                             <td>
                                 <div class="d-flex justify-content-end gap-2">
-                                    @can('edit-permission')
                                     <a href="{{ route('edit-permission', $permission->id) }}" class="btn btn-sm btn-info">Edit</a>
-                                    @endcan
-                                    @can('delete-permission')
                                     <button type="button" onclick="alertDelet({{ $permission->id }})" class="btn-sm btn-danger">Delete</button>
-                                    @endcan
                                 </div>
                             </td>
                         </tr>

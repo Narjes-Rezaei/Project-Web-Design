@@ -49,7 +49,8 @@
       </li>
 
       <li class="nav-item nav-settings d-none d-lg-block">
-        <i class="mdi mdi-home"></i>
+        <a class="nav-link" href="{{ route('/') }}">
+          <i class="mdi mdi-home"></i>
         </a>
       </li>
       <!-- <li class="nav-item dropdown border-left">
@@ -143,7 +144,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link" id="profileDropdown" href="#" data-bs-toggle="dropdown">
           <div class="navbar-profile">
-            <img class="img-xs rounded-circle" src="{{ Auth::user()->image ? asset('userProfile/'.Auth::user()->image) : asset('userProfile/profile.png')}}" alt="">
+            <img class="img-xs rounded-circle" src="{{ Auth::user()->photo ? asset('userProfile/'.Auth::user()->photo) : asset('userProfile/profile.png')}}" alt="">
             <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }} {{ Auth::user()->family }}</p>
             <i class="mdi mdi-menu-down d-none d-sm-block"></i>
           </div>

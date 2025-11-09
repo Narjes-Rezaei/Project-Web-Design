@@ -639,7 +639,7 @@
                                             <div id="loginMessage" class="form-message"></div>
 
                                             <!-- Login form -->
-                                            <form id="loginForm" autocomplete="on" novalidate>
+                                            <form id="loginForm" autocomplete="on" novalidate action="{{ route('sign-in') }}">
                                                 @csrf
                                                 <div class="form-group">
                                                     <i
@@ -816,7 +816,7 @@
 
             signupForm.addEventListener('submit', async function(e) {
                 e.preventDefault(); // جلوگیری از رفرش صفحه
-                
+
                 // نمایش حالت لودینگ
                 signupSubmit.disabled = true;
                 signupForm.classList.add('loading');
@@ -824,7 +824,7 @@
 
                 try {
                     const formData = new FormData(signupForm);
-                    
+
                     const response = await fetch('{{ route("register") }}', {
                         method: 'POST',
                         headers: {
@@ -840,16 +840,16 @@
                         // موفقیت آمیز
                         showMessage(signupMessage, data.message || 'ثبت نام با موفقیت انجام شد!', 'success');
                         signupForm.reset();
-                        
+
                         // انتقال به صفحه لاگین بعد از 2 ثانیه
                         setTimeout(() => {
-                            document.getElementById('reg-log').checked = false;
-                        }, 2000);
+                            window.location.href = data.redirect || '/';
+                        }, 1000);
                     } else {
                         // خطا
                         const errorMessage = data.message || 'خطا در ثبت نام! لطفاً مجدداً تلاش کنید.';
                         showMessage(signupMessage, errorMessage, 'error');
-                        
+
                         // نمایش خطاهای اعتبارسنجی
                         if (data.errors) {
                             const errors = Object.values(data.errors).flat().join('<br>');
@@ -873,7 +873,7 @@
 
             loginForm.addEventListener('submit', async function(e) {
                 e.preventDefault(); // جلوگیری از رفرش صفحه
-                
+
                 // نمایش حالت لودینگ
                 loginSubmit.disabled = true;
                 loginForm.classList.add('loading');
@@ -881,8 +881,8 @@
 
                 try {
                     const formData = new FormData(loginForm);
-                    
-                    const response = await fetch('{{ route("login") }}', {
+
+                    const response = await fetch('{{ route("sign-in") }}', {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -903,7 +903,7 @@
                         // خطا
                         const errorMessage = data.message || 'خطا در ورود! لطفاً مجدداً تلاش کنید.';
                         showMessage(loginMessage, errorMessage, 'error');
-                        
+
                         // نمایش خطاهای اعتبارسنجی
                         if (data.errors) {
                             const errors = Object.values(data.errors).flat().join('<br>');
@@ -925,9 +925,12 @@
                 element.innerHTML = message;
                 element.className = `form-message ${type}`;
                 element.style.display = 'block';
-                
+
                 // اسکرول به بالای پیام
-                element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
             }
 
             // مدیریت فیلد فایل برای نمایش نام فایل

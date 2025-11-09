@@ -3,6 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Models\Admin\Permission;
+use App\Models\Admin\Role;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +25,8 @@ class User extends Authenticatable
         'family',
         'phone',
         'email',
+        'super_user',
+        'staff',
         'password',
         'photo',
     ];
@@ -47,5 +52,27 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    function isSuperUser()
+    {
+        if ($this->super_user == 1) return true;
+        else return false;
+    }
+
+    function isStaff()
+    {
+        if ($this->staff == 1) return true;
+        else return false;
     }
 }

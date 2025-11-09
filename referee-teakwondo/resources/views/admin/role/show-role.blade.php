@@ -55,9 +55,7 @@
         <div class="card-body">
             <div class="flex">
                 <h4 class="card-title">Role table</h4>
-                @can('add-role')
                 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-role') }}">+ Add Role</a>
-                @endcan
             </div>
             </p>
             <div class="table-responsive">
@@ -75,12 +73,8 @@
                             <td> {{ $role->name }} </td>
                             <td>
                                 <div class="d-flex justify-content-end gap-2">
-                                    @can('edit-role')
                                     <a href="{{ route('edit-role', $role->id) }}" class="btn btn-sm btn-info" method="get">Edit</a>
-                                    @endcan
-                                    @can('delete-role')
                                     <button onclick="alertDelet({{ $role->id }})" class="btn-sm btn-danger">Delete</button>
-                                    @endcan
                                 </div>
                             </td>
                         </tr>

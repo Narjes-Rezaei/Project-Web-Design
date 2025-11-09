@@ -8,7 +8,7 @@
       <div class="profile-desc">
         <div class="profile-pic">
           <div class="count-indicator">
-            <img class="img-xs rounded-circle " src="{{ Auth::user()->image ? asset('userProfile/'.Auth::user()->image) : asset('userProfile/profile.png')}}" alt="">
+            <img class="img-xs rounded-circle " src="{{ Auth::user()->photo ? asset('userProfile/'.Auth::user()->photo) : asset('userProfile/profile.png')}}" alt="">
             <span class="count bg-success"></span>
           </div>
           <div class="profile-name">
@@ -62,11 +62,11 @@
       <span class="nav-link">Navigation</span>
     </li>
     <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('dashboard') }}">
+      <a class="nav-link" href="{{ route('zodiac') }}">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
         </span>
-        <span class="menu-title">Dashboard</span>
+        <span class="menu-title">User</span>
       </a>
     </li>
 
@@ -88,6 +88,92 @@
         <span class="menu-title">Our Blog</span>
       </a>
     </li>
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-event-rank') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Event Rank</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-permission') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Permission</span>
+      </a>
+    </li>
+
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-event-type') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Event Type</span>
+      </a>
+    </li>
+
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-province') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Province</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-role') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Role</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-gender') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Gender</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-degree') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Degree</span>
+      </a>
+    </li>
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-referee') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Referee</span>
+      </a>
+    </li>
+
+
+
+
+
+
 
     <!-- @can('show-photo')
     <li class="nav-item menu-items">

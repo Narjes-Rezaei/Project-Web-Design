@@ -22,7 +22,7 @@
                 <input type="password" name="password" id="pass" placeholder="Password" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"/>
 
                 <label class="sr-only" for="inlineFormInputName2">Photo</label>
-                <input type="file" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Choise Photo" style="color: white;" name="image">
+                <input type="file" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Choise Photo" style="color: white;" name="photo">
                 <br>
                 <button type="submit" class="btn btn-primary mb-2" value="Register" name="signup" id="signup">Register</button>
             </form>

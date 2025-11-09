@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOurBlogRequest;
 use App\Http\Requests\UpdateOurBlogRequest;
 use App\Models\OurBlog;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class OurBlogController extends Controller

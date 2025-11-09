@@ -26,10 +26,10 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(RegisterUserRequest $request): RedirectResponse
+    public function store(RegisterUserRequest $request)
     {
 
-        // $request->validated();
+        $request->validated();
 
         $user = new User();
         $user->name = $request->name;
@@ -52,6 +52,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('/', absolute: false));
+        return response()->json([
+            'success' => true,
+            'message' => 'Permission Removed',
+        ], 200);
     }
 }
