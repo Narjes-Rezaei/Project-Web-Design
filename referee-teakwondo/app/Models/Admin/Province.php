@@ -15,4 +15,7 @@ class Province extends Model
     function referees(){
         return $this->hasMany(Referee::class);
     }
+    function gameMatch(){
+        return $this->hasMany(GameMatch::class);
+    }
 }

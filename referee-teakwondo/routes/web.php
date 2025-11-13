@@ -7,14 +7,19 @@ use App\Http\Controllers\Admin\EventRankController;
 use App\Http\Controllers\Admin\EventTypeController;
 use App\Http\Controllers\Admin\GenderController;
 use App\Http\Controllers\Admin\MatchVideoController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\OurBlogController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\RefereeController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\TeamMatchController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\MasterController;
+use App\Http\Controllers\Admin\MatchController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SelectRefereeController;
 use App\Models\Admin\EventType;
 use App\Models\Admin\Gender;
 use App\Models\Admin\Province;
@@ -153,5 +158,50 @@ Route::get('/remove-referee/{id}', [RefereeController::class , 'removeReferee'])
 Route::get('user-access{id}' , [AccessController::class , 'userAccess'])->name('user-access');
 Route::put('update-access-user/{id}' , [AccessController::class , 'updateAccessUser'])->name('update-access-user');
 
+
+// Team
+Route::get('/show-team', [TeamController::class , 'showTeam'])->name('show-team');
+Route::get('/add-team', [TeamController::class , 'addTeam'])->name('add-team');
+Route::post('/store-team', [TeamController::class , 'storeTeam'])->name('store-team');
+Route::get('/edit-team{id}', [TeamController::class , 'editTeam'])->name('edit-team');
+Route::put('/update-team{id}', [TeamController::class , 'updateTeam'])->name('update-team');
+Route::get('/remove-team/{id}', [TeamController::class , 'removeTeam'])->name('remove-team');
+
+
+// Memeber
+Route::get('/show-member', [MemberController::class , 'showMemeber'])->name('show-member');
+Route::get('/add-member', [MemberController::class , 'addMember'])->name('add-member');
+Route::post('/store-member', [MemberController::class , 'storeMember'])->name('store-member');
+Route::get('/edit-member{id}', [MemberController::class , 'editMember'])->name('edit-member');
+Route::put('/update-member{id}', [MemberController::class , 'updateMember'])->name('update-member');
+Route::get('/remove-member/{id}', [MemberController::class , 'removeMember'])->name('remove-member');
+
+
+// Match
+Route::get('/show-match', [MatchController::class , 'showMatch'])->name('show-match');
+Route::get('/add-match', [MatchController::class , 'addMatch'])->name('add-match');
+Route::post('/store-match', [MatchController::class , 'storeMatch'])->name('store-match');
+Route::get('/edit-match{id}', [MatchController::class , 'editMatch'])->name('edit-match');
+Route::put('/update-match{id}', [MatchController::class , 'updateMatch'])->name('update-match');
+Route::get('/remove-match/{id}', [MatchController::class , 'removeMatch'])->name('remove-match');
+
+
+// Select Referee
+Route::get('/show-select-referee', [SelectRefereeController::class , 'showSelectReferee'])->name('show-select-referee');
+Route::get('/add-select-referee', [SelectRefereeController::class , 'addSelectReferee'])->name('add-select-referee');
+Route::post('/store-select-referee', [SelectRefereeController::class , 'storeSelectReferee'])->name('store-select-referee');
+Route::get('/edit-select-referee{id}', [SelectRefereeController::class , 'editSelectReferee'])->name('edit-select-referee');
+Route::put('/update-select-referee{id}', [SelectRefereeController::class , 'updateSelectReferee'])->name('update-select-referee');
+Route::get('/remove-select-referee/{id}', [SelectRefereeController::class , 'removeSelectReferee'])->name('remove-select-referee');
+
+
+
+// Team Match
+Route::get('/show-team-match', [TeamMatchController::class , 'showTeamMatch'])->name('show-team-match');
+Route::get('/add-team-match', [TeamMatchController::class , 'addTeamMatch'])->name('add-team-match');
+Route::post('/store-team-match', [TeamMatchController::class , 'storeTeamMatch'])->name('store-team-match');
+Route::get('/edit-team-match{id}', [TeamMatchController::class , 'editTeamMatch'])->name('edit-team-match');
+Route::put('/update-team-match{id}', [TeamMatchController::class , 'updateTeamMatch'])->name('update-team-match');
+Route::get('/remove-team-match/{id}', [TeamMatchController::class , 'removeTeamMatch'])->name('remove-team-match');
 
 require __DIR__.'/auth.php';

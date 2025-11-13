@@ -9,4 +9,8 @@ class EventType extends Model
     protected $fillable = [
         'name'
     ];
+
+    function gameMatch(){
+        return $this->hasMany(GameMatch::class,'');
+    }
 }

@@ -1,10 +1,10 @@
- <div class="container" id="last-result">
+ <div class="container">
       
 
       <div class="row">
         <div class="col-lg-12">
           
-          <div class="d-flex team-vs">
+          <div class="d-flex team-vs " id="last-result">
             <span class="score">4-1</span>
             <div class="team-1 w-50">
               <div class="team-details w-100 text-center">

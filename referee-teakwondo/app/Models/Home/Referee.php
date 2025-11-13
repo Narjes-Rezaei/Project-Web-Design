@@ -3,6 +3,7 @@
 namespace App\Models\Home;
 
 use App\Models\Admin\Degree;
+use App\Models\Admin\GameMatch;
 use App\Models\Admin\Gender;
 use App\Models\Admin\Province;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +34,13 @@ class Referee extends Model
 
     function gender(){
         return $this->belongsTo(Gender::class);
+    }
+
+    public function gameMatches()
+    {
+        return $this->belongsToMany(GameMatch::class, 'referee_match')
+                    ->withPivot(['is_present', 'is_best_referee', 'score', 'is_observer'])
+                    ->withTimestamps();
     }
 }
 
