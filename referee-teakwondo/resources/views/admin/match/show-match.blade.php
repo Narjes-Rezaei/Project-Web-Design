@@ -94,6 +94,12 @@
                                 <td> {{ $match->province->name }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
+                                        <a href="{{ route('show-referee-match',['id'=>$match->id]) }}">
+                                            <button type="button" class="btn btn-outline-info">Add Referee</button>
+                                        </a>
+                                        <a href="{{ route('show-team-match',['id'=>$match->id]) }}">
+                                            <button type="button" class="btn btn-outline-info">Add Team</button>
+                                        </a>
                                         <a href="#">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>

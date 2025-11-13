@@ -20,7 +20,7 @@ class GameMatch extends Model
     // GameMatch.php
     public function teams()
     {
-        return $this->belongsToMany(Team::class, 'match_team', 'match_id', 'team_id');
+        return $this->belongsToMany(Team::class, 'team_match', 'match_id', 'team_id');
     }
 
     // GameMatch.php

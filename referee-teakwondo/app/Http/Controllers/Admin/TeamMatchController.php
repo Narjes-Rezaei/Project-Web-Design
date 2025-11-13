@@ -12,74 +12,56 @@ use Illuminate\Support\Facades\DB;
 
 class TeamMatchController extends Controller
 {
-    function showTeamMatch()
+    function showTeamMatch($id)
     {
-        $matches = GameMatch::with('teams')->get();
-        
-        return view('admin/match/add-team-match')->with('matches', $matches);
+        $matchmodel = GameMatch::find($id);
+        $teamMatches = DB::table('team_match')->where('match_id', $id)->get();
+
+
+        $matches = $teamMatches->map(function ($row) {
+            return [
+                'match_id' => $row->match_id,
+                'team1' => Team::find($row->team1_id),
+                'team2' => Team::find($row->team2_id),
+            ];
+        });
+
+        // dd($matches);
+
+
+        $teams = Team::all();
+
+
+        return view('admin/teamMatch/show-team-match')
+            ->with('matches', $matches)
+            ->with('matchmodel', $matchmodel)
+            ->with('teams', $teams);
     }
 
-    function addTeamMatch()
-    {
-        $team1 = Team::all();
-        $team2 = Team::all();
-        $gameMatch = GameMatch::all();
-        return view('admin/match/add-team-match')
-            ->with('team1', $team1)
-            ->with('team2', $team2)
-            ->with('gameMatch', $gameMatch);
-    }
 
-    function storeTeamMatch(StoreTeamMatchRequest $request)
+    function storeTeamMatch(StoreTeamMatchRequest $request, $id)
     {
+
+        // dd($request);
 
         $request->validated();
 
         DB::table('team_match')->insert([
-            'match_id' => $request->match_id,
+            'match_id' => $id,
             'team1_id' => $request->team1,
             'team2_id' => $request->team2,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('show-team-match')->with('success', 'Team Match Added!');
+        return redirect()->route('show-team-match', [$id])->with('success', 'Team Match Added!');
     }
 
-    function editTeamMatch($id)
-    {
-        $match = GameMatch::find($id);
-
-        return view('admin/match/edit-match')->with('match', $match);
-    }
-
-
-
-    function updateTeamMatch($id, UpdateTeamMatchRequest $request)
-    {
-        // $request->validated();
-
-        $match = GameMatch::find($id);
-
-
-        if ($request->filled('event_title')) {
-            $match->event_title = $request->event_title;
-        }
-
-        if ($request->filled('event_date')) {
-            $match->event_date = $request->event_date;
-        }
-
-        $match->update();
-
-        return redirect()->route('show-team-match')->with('success', 'Team Match Updated');
-    }
 
     function removeTeamMatch($id)
     {
-        $match = GameMatch::find($id);
-
-        $match->delete();
+        dd($id);
+        DB::table('team_match')->where('id', 5)->delete();
 
         return response()->json([
             'success' => true,

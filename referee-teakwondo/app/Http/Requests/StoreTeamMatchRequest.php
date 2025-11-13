@@ -24,7 +24,6 @@ class StoreTeamMatchRequest extends FormRequest
         return [
             'team1' => 'required|exists:teams,id',
             'team2' => 'required|exists:teams,id',
-            'match' => 'required|exists:matches,id',
         ];
     }
 }

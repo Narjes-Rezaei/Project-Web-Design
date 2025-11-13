@@ -26,7 +26,7 @@ class Team extends Model
 
     function gameMatches()
     {
-        return $this->belongsToMany(GameMatch::class);
+        return $this->belongsToMany(GameMatch::class , 'team_match');
     }
 
     function members()

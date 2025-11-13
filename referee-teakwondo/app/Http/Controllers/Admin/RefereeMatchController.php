@@ -10,24 +10,22 @@ use Illuminate\Http\Request;
 class RefereeMatchController extends Controller
 {
 
-    function addRefereeToMatch($id)
+    function refereeMatch($id)
     {
-        $match = GameMatch::findOrFail($id);
-        $referee = Referee::all();
-        
-        $userRole = $user->roles->pluck('id')->toArray();
-        $userPermission = $user->permissions->pluck('id')->toArray();
+        $gameMatch = GameMatch::findOrFail($id);
 
-        return view('admin.access')
-            ->with('user', $user)
-            ->with('permissions', $permissions)
-            ->with('roles', $roles)
-            ->with('userRole', $userRole)
-            ->with('userPermission', $userPermission);
+        $referees = Referee::all();
+
+        $refereeGame = $gameMatch->referees->pluck('id')->toArray();
+
+        return view('admin/refereeMatch/referee-match')
+            ->with('gameMatch', $gameMatch)
+            ->with('referees', $referees)
+            ->with('refereeGame', $refereeGame);
     }
 
 
-    function updateAccessUser($id, Request $request)
+    function updateRefereeMatch($id, Request $request)
     {
 
         DB::table('permission_user')->where('user_id', $id)->delete();
@@ -53,6 +51,7 @@ class RefereeMatchController extends Controller
         $roles = $request->input('roles', []);
         $user->permissions()->sync($permissions);
         $user->roles()->sync($roles);
+
 
         return redirect('zodiac')->with('success', 'Access Updated!');
     }
