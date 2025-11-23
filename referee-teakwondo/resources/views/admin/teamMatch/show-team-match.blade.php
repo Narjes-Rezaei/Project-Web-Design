@@ -63,29 +63,60 @@
                     @method('POST')
 
                     <div class="row mb-3">
-                        <!-- Team 1 -->
-                        <div class="col-md-4">
-                            <label for="team1" class="form-label">Team 1</label>
-                            <select name="team1" id="team1" class="form-control">
-                                <option value="">-- Select Team 1 --</option>
-                                @foreach($teams as $team)
-                                <option value="{{ $team->id }}">{{ $team->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+    
+    <!-- Team 1 -->
+    <div class="col-md-4">
+        <label for="team1" class="form-label">Team 1</label>
+        <select name="team1" id="team1" class="form-control">
+            <option value="">-- Select Team 1 --</option>
+            @foreach($teams as $team)
+                <option value="{{ $team->id }}">{{ $team->name }}</option>
+            @endforeach
+        </select>
+    </div>
 
-                        <!-- Team 2 -->
-                        <div class="col-md-4">
-                            <label for="team2" class="form-label">Team 2</label>
-                            <select name="team2" id="team2" class="form-control">
-                                <option value="">-- Select Team 2 --</option>
-                                @foreach($teams as $team)
-                                <option value="{{ $team->id }}">{{ $team->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+    <!-- Team 2 -->
+    <div class="col-md-4">
+        <label for="team2" class="form-label">Team 2</label>
+        <select name="team2" id="team2" class="form-control">
+            <option value="">-- Select Team 2 --</option>
+            @foreach($teams as $team)
+                <option value="{{ $team->id }}">{{ $team->name }}</option>
+            @endforeach
+        </select>
+    </div>
 
-                    </div>
+    <!-- Hour -->
+    <div class="col-md-2">
+        <label for="hour" class="form-label">Hour</label>
+        <input type="number"
+               name="hour"
+               id="hour"
+               class="form-control text-center"
+               placeholder="Hour"
+               min="1"
+               max="24"
+               inputmode="numeric"
+               required
+               style="color: white;">
+    </div>
+
+    <!-- Minute -->
+    <div class="col-md-2">
+        <label for="minute" class="form-label">Minute</label>
+        <input type="number"
+               name="min"
+               id="minute"
+               class="form-control text-center"
+               placeholder="Min"
+               min="0"
+               max="59"
+               inputmode="numeric"
+               required
+               style="color: white;">
+    </div>
+
+</div>
 
                     <button type="submit" class="btn btn-primary mb-3">Submit</button>
                 </form>
@@ -135,7 +166,9 @@
                                 <td> {{ optional($match['team1'])->gender->name }} </td>
                                 <td> {{ optional($match['team1'])->province->name }} </td>
 
-                                <td> <h5>VS</h5> </td>
+                                <td>
+                                    <h5>VS</h5>
+                                </td>
 
                                 <td>
                                     <img src="{{ asset('teamLogo/'. optional($match['team2'])->logo) }}" alt="image">
@@ -155,7 +188,6 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>

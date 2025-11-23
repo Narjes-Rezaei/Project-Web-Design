@@ -250,10 +250,10 @@ jQuery(document).ready(function($) {
 	  });
 	};
 	siteStellar();
-
+	
 	var siteCountDown = function() {
 
-		$('#date-countdown, #date-countdown2').countdown('2033/10/10', function(event) {
+		$('#date-countdown, #date-countdown2').countdown(targetDate, function(event) {
 		  var $this = $(this).html(event.strftime(''
 		    + '<span class="countdown-block"><span class="label">%w</span> weeks </span>'
 		    + '<span class="countdown-block"><span class="label">%d</span> days </span>'

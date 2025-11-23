@@ -5,7 +5,7 @@
                         <h2 class="heading">Videos</h2>
                     </div>
                     <div class="col-6 text-right">
-                        <div class="custom-nav">
+                        <div class="custom-nav" id="referees">
                             <a href="#" class="js-custom-prev-v2"><span class="icon-keyboard_arrow_left"></span></a>
                             <span></span>
                             <a href="#" class="js-custom-next-v2"><span class="icon-keyboard_arrow_right"></span></a>

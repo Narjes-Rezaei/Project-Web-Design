@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="index/css/owl.carousel.min.css">
     <link rel="stylesheet" href="index/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="index/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="stylesheet" href="index/css/jquery.fancybox.min.css">
 
@@ -28,6 +29,7 @@
     <link rel="stylesheet" href="index/css/style.css">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
 
 
@@ -53,7 +55,9 @@
 
         @include('index.intro')
 
+        @if($team1 != null || $team2 != null)
         @include('index.last-result')
+        @endif
 
         @include('index.video')
 

@@ -4,29 +4,28 @@
   <div class="row">
     <div class="col-lg-12">
 
-      <div class="d-flex team-vs " id="last-result">
-        <span class="score">4-1</span>
+      <div class="d-flex team-vs " id="match-video">
+        <span class="score"> VS </span>
         <div class="team-1 w-50">
           <div class="team-details w-100 text-center">
-            <img src="index/images/logo_1.png" alt="Image" class="img-fluid">
-            <h3>LA LEGA <span>(win)</span></h3>
+            <img src="{{ asset('teamLogo/'.$team1->logo) }}" alt="Image" class="img-fluid">
+            <h3>{{ $team1->name }}</h3>
             <ul class="list-unstyled">
-              <li>Anja Landry (7)</li>
-              <li>Eadie Salinas (12)</li>
-              <li>Ashton Allen (10)</li>
-              <li>Baxter Metcalfe (5)</li>
+              @foreach ($members_team1 as $member)
+              <li>{{ $member->name }} {{ $member->family }}</li>
+              @endforeach
+
             </ul>
           </div>
         </div>
         <div class="team-2 w-50">
           <div class="team-details w-100 text-center">
-            <img src="index/images/logo_2.png" alt="Image" class="img-fluid">
-            <h3>JUVENDU <span>(loss)</span></h3>
+            <img src="{{ asset('teamLogo/'.$team2->logo) }}" alt="Image" class="img-fluid">
+            <h3>{{ $team2->name }}</h3>
             <ul class="list-unstyled">
-              <li>Macauly Green (3)</li>
-              <li>Arham Stark (8)</li>
-              <li>Stephan Murillo (9)</li>
-              <li>Ned Ritter (5)</li>
+              @foreach ($members_team2 as $member)
+              <li>{{ $member->name }} {{ $member->family }}</li>
+              @endforeach
             </ul>
           </div>
         </div>

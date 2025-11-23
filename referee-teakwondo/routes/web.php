@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\TeamMatchController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\MasterController;
 use App\Http\Controllers\Admin\MatchController;
+use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SelectRefereeController;
 use App\Models\Admin\EventType;
@@ -187,12 +188,11 @@ Route::get('/remove-match/{id}', [MatchController::class , 'removeMatch'])->name
 
 
 // Select Referee
-Route::get('/show-referee-match', [SelectRefereeController::class , 'showRefereeMatch'])->name('show-referee-match');
-Route::get('/add-referee-match', [SelectRefereeController::class , 'addRefereeMatch'])->name('add-referee-match');
+Route::get('/referee-match{id}', [SelectRefereeController::class , 'refereeMatch'])->name('referee-match');
 Route::post('/store-referee-match', [SelectRefereeController::class , 'storeRefereeMatch'])->name('store-referee-match');
 Route::get('/edit-referee-match{id}', [SelectRefereeController::class , 'editRefereeMatch'])->name('edit-referee-match');
 Route::put('/update-referee-match{id}', [SelectRefereeController::class , 'updateRefereeMatch'])->name('update-referee-match');
-Route::get('/remove-referee-match/{id}', [SelectRefereeController::class , 'removeRefereeMatch'])->name('remove-referee-match');
+Route::get('/remove-referee-match/{id}/{match_id}', [SelectRefereeController::class , 'removeRefereeMatch'])->name('remove-referee-match');
 
 
 
@@ -200,5 +200,15 @@ Route::get('/remove-referee-match/{id}', [SelectRefereeController::class , 'remo
 Route::get('/show-team-match{id}', [TeamMatchController::class , 'showTeamMatch'])->name('show-team-match');
 Route::post('/store-team-match/{id}', [TeamMatchController::class , 'storeTeamMatch'])->name('store-team-match');
 Route::get('/remove-team-match/{id}', [TeamMatchController::class , 'removeTeamMatch'])->name('remove-team-match');
+
+
+
+// Social Media
+Route::get('/show-social-media', [SocialMediaController::class , 'showSocialMedia'])->name('show-social-media');
+Route::get('/add-social-media', [SocialMediaController::class , 'addSocialMedia'])->name('add-social-media');
+Route::post('/store-social-media', [SocialMediaController::class , 'storeSocialMedia'])->name('store-social-media');
+Route::get('/edit-social-media{id}', [SocialMediaController::class , 'editSocialMedia'])->name('edit-social-media');
+Route::put('/update-social-media{id}', [SocialMediaController::class , 'updateSocialMedia'])->name('update-social-media');
+Route::get('/remove-social-media/{id}', [SocialMediaController::class , 'removeSocialMedia'])->name('remove-social-media');
 
 require __DIR__.'/auth.php';

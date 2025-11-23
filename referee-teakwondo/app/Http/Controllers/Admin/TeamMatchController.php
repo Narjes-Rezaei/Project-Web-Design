@@ -50,6 +50,8 @@ class TeamMatchController extends Controller
             'match_id' => $id,
             'team1_id' => $request->team1,
             'team2_id' => $request->team2,
+            'hour' => $request->hour,
+            'min' => $request->min,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

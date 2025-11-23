@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTeamMatchRequest extends FormRequest
+class UpdateSocialMediaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,11 @@ class StoreTeamMatchRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'team1' => 'required|exists:teams,id',
-            'team2' => 'required|exists:teams,id',
-            'hour' => 'required|integer|min:1|max:24',
-            'min' => 'required|integer|min:0|max:59',
+            'twitter'=> ['url'],
+            'facebook'=> ['url'],
+            'instagram'=> ['url'],
+            'youtube'=> ['url'],
+            'telegram'=> ['url'],
         ];
     }
 }

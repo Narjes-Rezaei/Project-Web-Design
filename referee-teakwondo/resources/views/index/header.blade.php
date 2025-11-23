@@ -11,10 +11,10 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class="{{ request()->routeIs('/') ? 'active' : '' }}"><a href="#intro" class="nav-link">Home</a></li>
-                <li class="{{ request()->routeIs('matches') ? 'active' : '' }}"><a href="#last-result" class="nav-link">Matches</a></li>
-                <li class="{{ request()->routeIs('players') ? 'active' : '' }}"><a href="{{ route('players') }}" class="nav-link">Players</a></li>
-                <li class="{{ request()->routeIs('blog') ? 'active' : '' }}"><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
-                <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+                <li class="{{ request()->routeIs('matches') ? 'active' : '' }}"><a href="#last-result" class="nav-link">Next Match</a></li>
+                <li class="{{ request()->routeIs('players') ? 'active' : '' }}"><a href="#match-video" class="nav-link">Match Video</a></li>
+                <li class="{{ request()->routeIs('blog') ? 'active' : '' }}"><a href="#referees" class="nav-link">Referees</a></li>
+                <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="#our-blog" class="nav-link">Our Blog</a></li>
                 @if(Auth::check())
                 @if(auth()->user()->isSuperUser() || auth()->user()->isStaff())
                 <li class="{{ request()->routeIs('zodiac') ? 'active' : '' }}"><a style="color: red;" href="{{ route('zodiac') }}" class="nav-link">Admin</a></li>

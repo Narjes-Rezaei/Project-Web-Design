@@ -1,72 +1,52 @@
-    <footer class="footer-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="widget mb-3">
-                            <h3>News</h3>
-                            <ul class="list-unstyled links">
-                                <li><a href="#">All</a></li>
-                                <li><a href="#">Club News</a></li>
-                                <li><a href="#">Media Center</a></li>
-                                <li><a href="#">Video</a></li>
-                                <li><a href="#">RSS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget mb-3">
-                            <h3>Tickets</h3>
-                            <ul class="list-unstyled links">
-                                <li><a href="#">Online Ticket</a></li>
-                                <li><a href="#">Payment and Prices</a></li>
-                                <li><a href="#">Contact &amp; Booking</a></li>
-                                <li><a href="#">Tickets</a></li>
-                                <li><a href="#">Coupon</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget mb-3">
-                            <h3>Matches</h3>
-                            <ul class="list-unstyled links">
-                                <li><a href="#">Standings</a></li>
-                                <li><a href="#">World Cup</a></li>
-                                <li><a href="#">La Lega</a></li>
-                                <li><a href="#">Hyper Cup</a></li>
-                                <li><a href="#">World League</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="widget mb-3">
-                            <h3>Social</h3>
-                            <ul class="list-unstyled links">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Youtube</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-12">
-                        <div class=" pt-5">
-                            <p>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script> All rights reserved | This template is made with <i class="icon-heart"
-                                    aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </p>
-                        </div>
-                    </div>
-
+<footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="widget mb-3">
+                    <h3>About Us</h3>
+                    <p class="about-text">
+                        We are a professional team with years of experience in the taekwondo field. Our goal is to provide the best services and experiences to fans and taekwondo enthusiasts.
+                    </p>
                 </div>
             </div>
-        </footer>
+
+            <div class="col-lg-6">
+                <div class="widget mb-3">
+                    <h3>Social Media</h3>
+                    <ul class="list-unstyled links">
+                        <li>
+                            <a href="{{ $socialMedia->twitter }}">
+                                <i class="fab fa-twitter"></i>
+                                Twitter
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $socialMedia->facebook }}">
+                                <i class="fab fa-facebook"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $socialMedia->instagram }}">
+                                <i class="fab fa-instagram"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $socialMedia->youtube }}">
+                                <i class="fab fa-youtube"></i>
+                                YouTube
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ $socialMedia->telegram }}">
+                                <i class="fab fa-telegram"></i>
+                                Telegram
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

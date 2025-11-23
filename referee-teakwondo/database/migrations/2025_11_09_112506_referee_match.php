@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('referee_id');
             $table->unsignedBigInteger('match_id');
-            $table->boolean('is_present');
-            $table->boolean('is_observer');
-            $table->boolean('is_best_referee');
-            $table->boolean('score');
+            $table->boolean('is_present')->default(false);
+            $table->boolean('is_observer')->default(false);
+            $table->boolean('is_best_referee')->default(false);
+            $table->integer('score')->default(0);
             $table->timestamps();
 
             $table->foreign('referee_id')->references('referee_id')->on('referees')->onDelete('cascade');
