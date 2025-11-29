@@ -74,7 +74,7 @@ class MasterController extends Controller
         $referees = Referee::all();
 
         $matchVideos = MatchVideo::orderBy('created_at', 'desc')->get();
-        $ourBlogs = OurBlog::orderBy('created_at', 'desc')->get();
+        $ourBlogs = OurBlog::orderBy('created_at', 'desc')->take(4)->get();
         $socialMedia = SocialMedia::first();
 
         if (!$socialMedia) {

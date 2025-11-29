@@ -30,6 +30,11 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- AOS CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Your other CSS -->
+    <link rel="stylesheet" href="your-style.css">
 
 
 
@@ -48,7 +53,7 @@
             </div>
             <div class="site-mobile-menu-body"></div>
         </div>
-        
+
         @include('index.alerts.alerts')
 
         @include('index.header')
@@ -65,7 +70,7 @@
 
         @include('index.next-match')
 
-        
+
 
         @include('index.our-blog')
 
@@ -92,6 +97,15 @@
 
 
     <script src="index/js/main.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- Your other JS -->
+    <script src="your-script.js"></script>
 
 </body>
 
