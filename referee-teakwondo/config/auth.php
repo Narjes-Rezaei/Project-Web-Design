@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'referee' => [
+            'driver' => 'session',
+            'provider' => 'referees',
+        ],
     ],
 
     /*
@@ -64,6 +68,12 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+
+        'referees' => [
+            'driver' => 'eloquent', // ✅ این خط خیلی مهمه
+            'model' => App\Models\Home\Referee::class,
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',

@@ -23,9 +23,13 @@
   <link rel="stylesheet" href="admin/assets/css/style.css">
   <!-- End layout styles -->
   <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+
 </head>
 
 <body>
+
   @include('admin.alerts.notiff')
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <div class="container-scroller">
@@ -49,5 +53,6 @@
   </div>
   @include('admin.layouts.scripts')
 </body>
+
 
 </html>

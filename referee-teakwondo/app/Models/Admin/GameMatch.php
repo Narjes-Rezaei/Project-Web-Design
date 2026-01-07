@@ -10,7 +10,7 @@ class GameMatch extends Model
 
     protected $table = 'matches';
     protected $casts = [
-    'event_date' => 'date',
+    'event_date' => 'datetime',
 ];
     protected $fillable = [
         'event_title',

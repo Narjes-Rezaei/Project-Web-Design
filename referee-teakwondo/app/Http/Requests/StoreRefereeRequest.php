@@ -24,6 +24,7 @@ class StoreRefereeRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
+            'birth_year' => 'required|string|max:4',
             'national_code' => 'nullable|string|max:10',
             'phone' => 'required|string|max:15',
             'email' => 'required|email|unique:referees',

@@ -56,12 +56,12 @@ class User extends Authenticatable
 
     function permissions()
     {
-        return $this->belongsToMany(Permission::class);
+        return $this->belongsToMany(Permission::class, 'permission_user', 'user_id', 'permission_id');
     }
 
     function roles()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id');
     }
 
     function isSuperUser()
@@ -74,5 +74,31 @@ class User extends Authenticatable
     {
         if ($this->staff == 1) return true;
         else return false;
+    }
+
+
+    public function hasRole($roleName)
+    {
+        return $this->roles->contains('name', $roleName);
+    }
+
+    public function hasPermission($permissionName)
+    {
+        if ($this->isSuperUser) {
+            return true;
+        }
+        $this->loadMissing(['permissions', 'roles.permissions']);
+
+        if ($this->permissions->contains('name', $permissionName)) {
+            return true;
+        }
+
+        foreach ($this->roles as $role) {
+            if ($role->permissions->contains('name', $permissionName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

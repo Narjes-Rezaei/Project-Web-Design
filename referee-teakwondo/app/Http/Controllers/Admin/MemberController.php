@@ -63,18 +63,25 @@ class MemberController extends Controller
 
     function editMember($id)
     {
-        $member = Member::find($id);
+        $member = Member::where('id', $id)->first();
+        $teams = Team::all();
+        $genders = Gender::all();
+        $provinces = Province::all();
 
-        return view('admin/member/edit-member')->with('member', $member);
+        return view('admin/member/edit-member')
+            ->with('member', $member)
+            ->with('teams', $teams)
+            ->with('genders', $genders)
+            ->with('provinces', $provinces);
     }
 
 
 
-    function updateReferee($id, UpdateMemberRequest $request)
+    function updateMember($id, UpdateMemberRequest $request)
     {
         // $request->validated();
 
-        $member = member::find($id);
+        $member = Member::where('id', $id)->first();
 
         if ($request->hasFile('photo')) {
             $photo = public_path('memberProfile/' . $member->photo);
@@ -101,21 +108,28 @@ class MemberController extends Controller
             $member->email = $request->email;
         }
 
-
         if ($request->filled('email')) {
             $member->email = $request->email;
         }
-
-
 
         if ($request->filled('phone')) {
             $member->phone = $request->phone;
         }
 
+        if ($request->filled('gender')) {
+            $member->gender_id = $request->gender;
+        }
 
+        if ($request->filled('team')) {
+            $member->team_id = $request->team;
+        }
+
+        if ($request->filled('province')) {
+            $member->province_id = $request->province;
+        }
         $member->update();
 
-        return redirect()->route('zodiac')->with('success', 'Referee Updated');
+        return redirect()->route('show-member')->with('success', 'Member Updated');
     }
 
     function removeMember($id)

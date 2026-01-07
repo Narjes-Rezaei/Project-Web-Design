@@ -30,8 +30,7 @@ class TeamController extends Controller
 
     function storeTeam(StoreTeamRequest $request)
     {
-
-
+        
         $request->validated();
 
         $team = new Team();
@@ -58,7 +57,13 @@ class TeamController extends Controller
     function editTeam($id)
     {
         $team = Team::find($id);
-        return view('admin/team/edit-team')->with('team', $team);
+        $genders = Gender::all();
+        $provinces = Province::all();
+
+        return view('admin/team/edit-team')
+        ->with('team', $team)
+        ->with('genders', $genders)
+        ->with('provinces', $provinces);
     }
 
 
@@ -90,7 +95,7 @@ class TeamController extends Controller
             $team->number_of_member = $request->number_of_member;
         }
 
-        if ($request->filled('gender_id')) {
+        if ($request->filled('gender')) {
             $team->gender_id = $request->gender_id;
         }
 

@@ -96,10 +96,7 @@
                                 <td> {{ $team->province->name }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-outline-info">Show Info</button>
-                                        </a>
-                                        <a href="#">
+                                        <a href="{{ route('edit-team', $team->id) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
                                         <a onclick="alertDelet({{ $team->id }})">

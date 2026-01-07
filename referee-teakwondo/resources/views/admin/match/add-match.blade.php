@@ -1,5 +1,5 @@
 @component('admin.layouts.content')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -11,8 +11,14 @@
                     placeholder="Enter Match Title" style="color: white;" name="event_title">
 
                 <label class="sr-only" for="event_date">Event Date</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="event_date"
-                    placeholder="Enter Event Date" style="color: white;" name="event_date">
+                <input
+                    type="text"
+                    id="birth_year"
+                    name="event_date"
+                    class="form-control"
+                    placeholder="Select Event Date & Time"
+                    style="color: white;">
+
 
                 {{-- event rank --}}
                 <label class="sr-only" for="eventRank">Event Rank</label>
@@ -50,5 +56,22 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    flatpickr("#birth_year", {
+        enableTime: true,
+        time_24hr: true,
+        enableSeconds: false,
+        dateFormat: "Y-m-d H:i:s",
+
+        minDate: "today",
+        minTime: new Date(),
+
+        defaultDate: new Date()
+    });
+</script>
+
 
 @endcomponent

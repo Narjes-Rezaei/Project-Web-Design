@@ -88,7 +88,7 @@
                             @foreach($matches as $match)
                             <tr>
                                 <td> {{ $match->event_title }} </td>
-                                <td> {{ $match->event_date }} </td>
+                                <td> {{ $match->event_date->format('Y-m-d H:i') }} </td>
                                 <td> {{ $match->eventRank->name }} </td>
                                 <td> {{ $match->eventType->name }} </td>
                                 <td> {{ $match->province->name }} </td>

@@ -25,22 +25,23 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Permission Removed',
-        ], 200);
+        return response()->json(['success' => true], 200);
     }
-
     /**
      * Destroy an authenticated session.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        dd('ok');
+        if (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        }
 
+        if (Auth::guard('referee')->check()) {
+            Auth::guard('referee')->logout();
+        }
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();

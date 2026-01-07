@@ -30,6 +30,10 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamMatchSeeder::class);
         $this->call(OurBlogSeeder::class);
         $this->call(MatchVideoSeeder::class);
+        $this->call(SocialMediaSeeder::class);
+        $this->call(PermissionSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(RolePermissionSeeder::class);
 
     }
 }

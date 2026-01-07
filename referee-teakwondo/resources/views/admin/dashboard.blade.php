@@ -76,6 +76,8 @@
     }
 </script>
 
+@include('admin.alerts.show-information-user')
+@can('show-user')
 <div class="row">
     <div class="col-12 grid-margin">
         <div class="card">
@@ -92,7 +94,6 @@
                         <a href="{{ route('add-user') }}" class="btn btn-success">+ Add User</a>
                     </div>
                 </div>
-
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -134,7 +135,7 @@
                                         <a href="{{ route('user-access',['id'=>$user->id]) }}">
                                             <button type="button" class="btn btn-outline-primary">Access</button>
                                         </a>
-                                        <a href="#">
+                                        <a href="{{ route('show-user', $user->id) }}">
                                             <button type="button" class="btn btn-outline-info">Show Info</button>
                                         </a>
                                         <a href="{{ route('edit-user',['id'=>$user->id]) }}">
@@ -150,11 +151,11 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
         </div>
     </div>
 </div>
+@endcan
 
 
 <script>

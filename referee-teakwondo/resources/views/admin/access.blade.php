@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 mb-3">
                     <div class="flex-grow-1 text-md-start text-center">
-                        <h4 class="card-title mb-0">Access Foe ...</h4>
+                        <h4 class="card-title mb-0">Access For ...</h4>
                     </div>
                 </div>
 

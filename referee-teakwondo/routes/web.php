@@ -41,11 +41,16 @@ Route::get('/blog',[MasterController::class , 'blog'])->name('blog');
 Route::get('/contact',[MasterController::class , 'contact'])->name('contact');
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+
+// profile
+Route::get('/profile', [ProfileController::class , 'profile'])->name('profile');
+Route::put('/update-profile', [ProfileController::class , 'updateProfile'])->name('update-profile');
 
 
 
@@ -77,6 +82,7 @@ Route::get('/remove-our-blog/{id}', [OurBlogController::class , 'removeOurBlog']
 
 // user
 Route::get('/add-user', [UserController::class , 'addUser'])->name('add-user');
+Route::get('/show-user{id}', [UserController::class , 'showUser'])->name('show-user');
 Route::post('/store-user', [UserController::class , 'storeUser'])->name('store-user');
 Route::get('/edit-user{id}', [UserController::class , 'editUser'])->name('edit-user');
 Route::put('/update-user{id}', [UserController::class , 'updateUser'])->name('update-user');
@@ -191,7 +197,7 @@ Route::get('/remove-match/{id}', [MatchController::class , 'removeMatch'])->name
 Route::get('/referee-match{id}', [SelectRefereeController::class , 'refereeMatch'])->name('referee-match');
 Route::post('/store-referee-match', [SelectRefereeController::class , 'storeRefereeMatch'])->name('store-referee-match');
 Route::get('/edit-referee-match{id}', [SelectRefereeController::class , 'editRefereeMatch'])->name('edit-referee-match');
-Route::put('/update-referee-match{id}', [SelectRefereeController::class , 'updateRefereeMatch'])->name('update-referee-match');
+Route::get('/update-referee-match{id}', [SelectRefereeController::class , 'updateRefereeMatch'])->name('update-referee-match');
 Route::get('/remove-referee-match/{id}/{match_id}', [SelectRefereeController::class , 'removeRefereeMatch'])->name('remove-referee-match');
 
 
@@ -210,5 +216,7 @@ Route::post('/store-social-media', [SocialMediaController::class , 'storeSocialM
 Route::get('/edit-social-media{id}', [SocialMediaController::class , 'editSocialMedia'])->name('edit-social-media');
 Route::put('/update-social-media{id}', [SocialMediaController::class , 'updateSocialMedia'])->name('update-social-media');
 Route::get('/remove-social-media/{id}', [SocialMediaController::class , 'removeSocialMedia'])->name('remove-social-media');
+
+
 
 require __DIR__.'/auth.php';

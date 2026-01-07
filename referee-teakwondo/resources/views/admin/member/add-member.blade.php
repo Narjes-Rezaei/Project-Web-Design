@@ -1,5 +1,5 @@
 @component('admin.layouts.content')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
@@ -14,9 +14,15 @@
                 <input type="text" class="form-control mb-2 mr-sm-2" id="family"
                     placeholder="Enter your family" style="color: white;" name="family">
 
-                <label class="sr-only" for="birthDate">birth_date</label>
-                <input type="text" class="form-control mb-2 mr-sm-2" id="national_code"
-                    placeholder="Enter your Birth date" style="color: white;" name="birth_date">
+                <label class="sr-only" for="birthDate">Birth Date</label>
+                <input
+                    type="text"
+                    id="birth_year"
+                    name="birth_date"
+                    class="form-control"
+                    placeholder="Select Birth Date"
+                    style="color: white;">
+
 
                 <label class="sr-only" for="phone">Phone</label>
                 <input type="phone" class="form-control mb-2 mr-sm-2" id="phone"
@@ -64,5 +70,11 @@
         </div>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#birth_year", {
+        dateFormat: "Y-m-d",
+        maxDate: "today"
+    });
+</script>
 @endcomponent

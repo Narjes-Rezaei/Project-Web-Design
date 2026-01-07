@@ -108,6 +108,14 @@
       </a>
     </li>
 
+     <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('show-role') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Role</span>
+      </a>
+    </li>
 
 
     <li class="nav-item menu-items">
@@ -131,15 +139,7 @@
     </li>
 
 
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-role') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Role</span>
-      </a>
-    </li>
-
+   
 
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-gender') }}">
@@ -213,70 +213,5 @@
 
 
 
-
-
-    <!-- @can('show-photo')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-photo') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Photo</span>
-      </a>
-    </li>
-    @endcan
-    @can('show-blog')
-    
-    @endcan
-    @can('show-message')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-message') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Message</span>
-      </a>
-    </li>
-    @endcan
-    @can('show-development')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-development') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Development</span>
-      </a>
-    </li>
-    @endcan
-    @can('show-role')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-role') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Role</span>
-      </a>
-    </li>
-    @endcan
-    @can('show-permission')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-permission') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Permission</span>
-      </a>
-    </li>
-    @endcan
-    @can('show-anything')
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('show-anything') }}">
-        <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
-        </span>
-        <span class="menu-title">Anything</span>
-      </a>
-    </li>
-    @endcan -->
   </ul>
 </nav>

@@ -15,24 +15,39 @@ use Illuminate\Support\Facades\Hash;
 
 class RefereeController extends Controller
 {
-    function showReferee(){
+
+
+    private function generateUniqueRefereeCode()
+    {
+        do {
+            $code = random_int(100000, 999999);
+        } while (Referee::where('referee_id', $code)->exists());
+
+        return $code;
+    }
+
+
+
+    function showReferee()
+    {
         $referees = Referee::with(['gender', 'degree', 'province'])->get();
 
         return view('admin/referee/show-referee')->with('referees', $referees);
-
     }
 
-    function addReferee(){
+    function addReferee()
+    {
         $genders = Gender::all();
         $degrees = Degree::all();
         $provinces = Province::all();
         return view('admin/referee/add-referee')
-        ->with('genders' , $genders)
-        ->with('degrees' , $degrees)
-        ->with('provinces' , $provinces);
+            ->with('genders', $genders)
+            ->with('degrees', $degrees)
+            ->with('provinces', $provinces);
     }
 
-    function storeReferee(StoreRefereeRequest $request){
+    function storeReferee(StoreRefereeRequest $request)
+    {
 
         // dd($request);
 
@@ -47,7 +62,7 @@ class RefereeController extends Controller
         //     $referee->image = $imageName;
         // }
 
-        $referee->referee_id = time();
+        $referee->referee_id = $this->generateUniqueRefereeCode();
         $referee->name = $request->name;
         $referee->family = $request->family;
         $referee->national_code = $request->national_code;
@@ -56,7 +71,7 @@ class RefereeController extends Controller
         $referee->gender_id = $request->gender;
         $referee->degree_id = $request->degree;
         $referee->province_id = $request->province;
-        $referee->birth_year = time();
+        $referee->birth_year = $request->birth_year;
         $referee->password = Hash::make($request->password);
 
 
@@ -66,63 +81,95 @@ class RefereeController extends Controller
         return redirect()->route('show-referee')->with('success', 'Referee Added!');
     }
 
-    function editReferee($id){
-        $referee = Referee::find($id);
+    function editReferee($id)
+    {
 
-        return view('admin/referee/edit-referee')->with('referee', $referee);
+        $referee = Referee::where('referee_id', $id)->first();
+        $degrees = Degree::all();
+        $genders = Gender::all();
+        $provinces = Province::all();
 
+        return view('admin/referee/edit-referee')
+            ->with('referee', $referee)
+            ->with('degrees', $degrees)
+            ->with('genders', $genders)
+            ->with('provinces', $provinces);
     }
 
 
 
-    function updateReferee($id, UpdateRefereeRequest $request){
+    function updateReferee($id, UpdateRefereeRequest $request)
+    {
         // $request->validated();
 
-        $referee = Referee::find($id);
+        $referee = Referee::where('referee_id', $id)->first();
 
-        if($request->hasFile('photo')){
-            $photo = public_path('refereeProfile/'.$referee->photo);
-            if(File::exists($photo)){
+        if ($request->hasFile('photo')) {
+            $photo = public_path('refereeProfile/' . $referee->photo);
+            if (File::exists($photo)) {
                 File::delete($photo);
             }
 
             $photo = $request->file('photo');
-            $photoName = time().'.'.$photo->getClientOriginalExtension();
-            $photo->move(public_path('refereeProfile'),$photoName);
+            $photoName = time() . '.' . $photo->getClientOriginalExtension();
+            $photo->move(public_path('refereeProfile'), $photoName);
             $referee->photo = $photoName;
         }
 
 
-        if($request->filled('name')){
+        if ($request->filled('name')) {
             $referee->name = $request->name;
         }
 
-        if($request->filled('family')){
+        if ($request->filled('national_code')) {
+            $referee->national_code = $request->national_code;
+        }
+
+        if ($request->filled('family')) {
             $referee->family = $request->family;
         }
 
-        if($request->filled('email')){
+        if ($request->filled('birth_year')) {
+            $referee->birth_year = $request->birth_year;
+        }
+
+        if ($request->filled('email')) {
             $referee->email = $request->email;
         }
-        if($request->filled('phone')){
+
+        if ($request->filled('phone')) {
             $referee->phone = $request->phone;
         }
-        if($request->filled('password')){
-            $referee->password = $request->password;
+
+        if ($request->filled('password')) {
+            $referee->password = Hash::make($request->password);
+        }
+
+        if ($request->filled('gender')) {
+            $referee->gender_id = $request->gender;
+        }
+
+        if ($request->filled('degree')) {
+            $referee->degree_id = $request->degree;
+        }
+
+        if ($request->filled('province')) {
+            $referee->province_id = $request->province;
         }
 
         $referee->update();
 
-        return redirect()->route('zodiac')->with('success', 'Referee Updated');
-    
+        return redirect()->route('show-referee')->with('success', 'Referee Updated');
     }
 
-    function removeReferee($id){
-        $referee = Referee::find($id);
+    function removeReferee($id)
+    {
+        $referee = Referee::where('referee_id', $id)->first();
 
-        $photo = public_path('refereeProfile/'. $referee->photo);
 
-        if(File::exists($photo)){
+        $photo = public_path('refereeProfile/' . $referee->image);
+
+        if (File::exists($photo)) {
             File::delete($photo);
         }
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('family');
             $table->unsignedBigInteger('degree_id');
-            $table->integer('birth_year');
+            $table->string('birth_year');
             $table->unsignedBigInteger('gender_id');
             $table->unsignedBigInteger('province_id');
             $table->string('image')->nullable();

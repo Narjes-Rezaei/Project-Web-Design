@@ -14,10 +14,10 @@ class Permission extends Model
 
 
     function users(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class,'permission_user','user_id','permission_id');
     }
 
     function roles(){
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Role::class,'role_permission','permission_id','role_id');
     }
 }

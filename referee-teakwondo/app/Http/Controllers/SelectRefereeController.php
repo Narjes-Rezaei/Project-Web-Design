@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\GameMatch;
 use App\Models\Home\Referee;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request;
 
 class SelectRefereeController extends Controller
 {
@@ -47,6 +48,10 @@ class SelectRefereeController extends Controller
         ->where('match_id' , $match_id)
         ->delete();
         
+    }
+
+    function updateRefereeMatch($id, Request $request){
+        dd($request);
     }
 
     //  function editRefereeMatch(){

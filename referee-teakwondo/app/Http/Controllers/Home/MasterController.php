@@ -44,6 +44,15 @@ class MasterController extends Controller
 
     function master()
     {
+
+        // $user = auth()->user();
+
+        // dd(
+        //     $user->permissions->pluck('name'),
+        //     $user->roles->pluck('name'),
+        //     $user->roles->first()?->permissions->pluck('name')
+        // );
+
         // early team data
         $team_record = $this->findVS();
 
@@ -71,7 +80,7 @@ class MasterController extends Controller
             $targetDate = null;
         }
 
-        $referees = Referee::all();
+        $referees = Referee::orderBy('created_at', 'desc')->take(10)->get();
 
         $matchVideos = MatchVideo::orderBy('created_at', 'desc')->get();
         $ourBlogs = OurBlog::orderBy('created_at', 'desc')->take(4)->get();

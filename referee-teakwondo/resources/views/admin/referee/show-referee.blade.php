@@ -3,7 +3,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    function alertDelet(user_id) {
+    function alertDelet(enter) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: "btn btn-outline-danger mx-2",
@@ -23,7 +23,7 @@
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                removeUser(user_id);
+                removeUser(enter);
                 swalWithBootstrapButtons.fire({
                     background: '#1b263b',
                     color: '#ffffffff',
@@ -45,34 +45,11 @@
         });
     }
 
-    function removeUser(user_id) {
+    function removeUser(enter) {
         let request = new XMLHttpRequest();
-        request.open("GET", `/remove-user/${user_id}`, true);
+        request.open("GET", `/remove-referee/${enter}`, true);
         request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
         request.send();
-    }
-
-    function superUser(id) {
-
-        let request = new XMLHttpRequest();
-
-        request.open("GET", `/check-super-user/${id}`, true);
-
-        request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-
-        request.send();
-    }
-
-    function sttaf(id) {
-
-        let request = new XMLHttpRequest();
-
-        request.open("GET", `/check-sttaf/${id}`, true);
-
-        request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-
-        request.send();
-
     }
 </script>
 
@@ -117,13 +94,10 @@
                                 <td> {{ $referee->gender->name }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
-                                        <a href="#">
-                                            <button type="button" class="btn btn-outline-info">Show Info</button>
-                                        </a>
-                                        <a href="#">
+                                        <a href="{{ route('edit-referee', $referee->referee_id) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
-                                        <a onclick="alertDelet({{ $referee->id }})">
+                                        <a onclick="alertDelet({{ $referee->referee_id }})">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
                                     </div>

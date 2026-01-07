@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Admin\Member;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class MemberSeeder extends Seeder

@@ -99,7 +99,7 @@
                                         <a href="#">
                                             <button type="button" class="btn btn-outline-info">Show Info</button>
                                         </a>
-                                        <a href="#">
+                                        <a href="{{ route('edit-member', $member->id) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
                                         <a onclick="alertDelet({{ $member->id }})">

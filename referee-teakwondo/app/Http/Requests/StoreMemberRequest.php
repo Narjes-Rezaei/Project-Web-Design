@@ -25,7 +25,7 @@ class StoreMemberRequest extends FormRequest
             'name' => 'required|string|max:255',
             'family' => 'required|string|max:255',
             'phone' => 'required|string|max:15',
-            'email' => 'required|email|unique:referees',
+            'email' => 'required|email|unique:members',
             'gender' => 'required|exists:genders,id',
             'province' => 'required|exists:provinces,id',
             'image' => 'nullable|image|max:2048',

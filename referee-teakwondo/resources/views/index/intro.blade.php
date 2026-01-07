@@ -23,13 +23,18 @@
           <p data-aos="fade-right" data-aos-duration="2000">Taekwondo is a discipline where strength meets serenity, and every kick becomes a promise of courage, resilience, and the relentless pursuit of mastery.</p>
           <div id="date-countdown" data-aos="zoom-in" data-aos-duration="1000"></div>
           <p data-aos="fade-up" data-aos-duration="1100">
-            @if(!Auth::check())
+            @if(!Auth::check() && !Auth::guard('referee')->check())
             <a href="{{ route('register') }}" class="btn btn-primary py-3 px-4 mr-3" id="last-result" data-aos="fade-left" data-aos-duration="1200">Sign In/Sign Up</a>
             @endif
-            @if(Auth::check())
+            @if(Auth::check()|| Auth::guard('referee')->check())
           <form action="{{ route('logout') }}" method="POST" style="display: inline;" data-aos="fade-left" data-aos-duration="1200">
             @csrf
             <button type="submit" class="btn btn-primary py-3 px-4 mr-3" id="last-result">Log Out</button>
+          </form>
+          <form action="{{ route('profile') }}" method="GET" style="display: inline;" data-aos="fade-left" data-aos-duration="1200">
+            @csrf
+            @method('GET')
+            <button type="submit" class="btn btn-outline-primary py-3 px-4 mr-3" id="last-result">Profile</button>
           </form>
           @endif
           </p>
