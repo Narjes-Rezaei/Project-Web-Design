@@ -31,11 +31,19 @@
             @csrf
             <button type="submit" class="btn btn-primary py-3 px-4 mr-3" id="last-result">Log Out</button>
           </form>
+          @if(Auth::guard('referee')->check())
+          <form action="{{ route('referee-panel') }}" method="GET" style="display: inline;" data-aos="fade-left" data-aos-duration="1200">
+            @csrf
+            @method('GET')
+            <button type="submit" class="btn btn-outline-primary py-3 px-4 mr-3" id="last-result">Dashboard</button>
+          </form>
+          @else
           <form action="{{ route('profile') }}" method="GET" style="display: inline;" data-aos="fade-left" data-aos-duration="1200">
             @csrf
             @method('GET')
             <button type="submit" class="btn btn-outline-primary py-3 px-4 mr-3" id="last-result">Profile</button>
           </form>
+          @endif
           @endif
           </p>
         </div>

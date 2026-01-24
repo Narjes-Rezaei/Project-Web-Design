@@ -34,7 +34,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        dd('ok');
         if (Auth::guard('web')->check()) {
             Auth::guard('web')->logout();
         }

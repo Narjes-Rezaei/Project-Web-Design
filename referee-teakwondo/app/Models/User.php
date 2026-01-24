@@ -84,7 +84,7 @@ class User extends Authenticatable
 
     public function hasPermission($permissionName)
     {
-        if ($this->isSuperUser) {
+        if ($this->isSuperUser()) {
             return true;
         }
         $this->loadMissing(['permissions', 'roles.permissions']);

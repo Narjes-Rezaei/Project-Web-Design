@@ -20,6 +20,7 @@ use App\Http\Controllers\Home\MasterController;
 use App\Http\Controllers\Admin\MatchController;
 use App\Http\Controllers\Admin\SocialMediaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Referee\PanelController;
 use App\Http\Controllers\SelectRefereeController;
 use App\Models\Admin\EventType;
 use App\Models\Admin\Gender;
@@ -217,6 +218,9 @@ Route::get('/edit-social-media{id}', [SocialMediaController::class , 'editSocial
 Route::put('/update-social-media{id}', [SocialMediaController::class , 'updateSocialMedia'])->name('update-social-media');
 Route::get('/remove-social-media/{id}', [SocialMediaController::class , 'removeSocialMedia'])->name('remove-social-media');
 
+
+// Panel Referee
+Route::get('/referee-panel', [PanelController::class , 'panelReferee'])->name('referee-panel');
 
 
 require __DIR__.'/auth.php';
