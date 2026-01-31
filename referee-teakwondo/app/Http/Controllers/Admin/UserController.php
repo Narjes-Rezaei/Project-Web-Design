@@ -20,7 +20,7 @@ class UserController extends Controller
             'family' => $user->family,
             'phone' => $user->phone,
             'email' => $user->email,
-            'image' => $user->image
+            'image' => $user->photo
         ]);
     }
 

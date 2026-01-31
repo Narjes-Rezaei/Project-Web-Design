@@ -50,8 +50,9 @@
     }
 </script>
 
-
+@can('add-event-type')
 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-our-blog') }}">+ Add Our Blog</a>
+@endcan
 <div class="row">
     @foreach($ourBlogs as $ourBlog)
     <div class="col-md-6 col-xl-4 grid-margin stretch-card mt-4">
@@ -70,8 +71,12 @@
             </div>
 
             <div class="card-footer bg-dark border-0 text-center d-flex justify-content-center gap-3">
+                @can('delete-event-type')
                 <button onclick="alertDelet({{ $ourBlog->id }})" class="btn btn-outline-danger px-4">Delete</button>
+                @endcan
+                @can('edit-event-type')
                 <a href="{{ route('edit-our-blog', ['id' => $ourBlog->id]) }}" class="btn btn-outline-warning px-4">Edit</a>
+                @endcan
             </div>
         </div>
 

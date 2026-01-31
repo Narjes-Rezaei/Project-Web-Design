@@ -1,6 +1,6 @@
 @component('admin.layouts.content')
 <script>
-    function alertDelet(user_id , enter) {
+    function alertDelet(user_id, enter) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: "btn btn-outline-danger mx-2",
@@ -20,7 +20,7 @@
             reverseButtons: true
         }).then((result) => {
             if (result.isConfirmed) {
-                removeUser(user_id , enter);
+                removeUser(user_id, enter);
                 swalWithBootstrapButtons.fire({
                     background: '#1b263b',
                     color: '#ffffffff',
@@ -42,34 +42,11 @@
         });
     }
 
-    function removeUser(user_id , enter) {
+    function removeUser(user_id, enter) {
         let request = new XMLHttpRequest();
-        request.open("GET", `/remove-user/${user_id}/${enter}`, true);
+        request.open("GET", `/remove-referee-match/${user_id}/${enter}`, true);
         request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
         request.send();
-    }
-
-    function superUser(id) {
-
-        let request = new XMLHttpRequest();
-
-        request.open("GET", `/check-super-user/${id}`, true);
-
-        request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-
-        request.send();
-    }
-
-    function sttaf(id) {
-
-        let request = new XMLHttpRequest();
-
-        request.open("GET", `/check-sttaf/${id}`, true);
-
-        request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
-
-        request.send();
-
     }
 </script>
 
@@ -129,7 +106,7 @@
                                         <a onclick="alertDelet( {{ $selectedReferee->referee_id }} , {{ $selectedReferee->match_id }} )">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
-                                        <a href="{{ route('edit-referee-match', $selectedReferee->referee_id) }}">
+                                        <a href="{{ route('edit-referee-match', [$selectedReferee->referee_id , $selectedReferee->match_id]) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
                                     </div>
@@ -195,6 +172,7 @@
                                                         <input
                                                             type="checkbox"
                                                             name="roles[]"
+                                                            value="{{ $referee->referee_id }}"
                                                             class="checkbox">
                                                         <i class="input-helper"></i>
                                                     </label>

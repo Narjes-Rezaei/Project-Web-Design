@@ -12,7 +12,7 @@
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
-                                <img src="{{ $referee->photo ? asset('refereeProfile/'.$referee->photo) : asset('refereeProfile/profile.png')}}" alt="Old Photo" style="max-width: 150px; max-height: 150px; border: 1px solid #ccc; border-radius: 8px; object-fit: cover;">
+                                <img src="{{ $referee->image ? asset('refereeProfile/'.$referee->image) : asset('refereeProfile/profile.png')}}" alt="Old Photo" style="max-width: 150px; max-height: 150px; border: 1px solid #ccc; border-radius: 8px; object-fit: cover;">
 
                             </div>
                         </div>
@@ -110,7 +110,9 @@
                     </div>
                 </div>
                 <br>
-                <button type="button" class="btn btn-outline-primary">Print</button>
+                <a href="{{ route('referee-print' , ['id'=>$referee->referee_id]) }}">
+                    <button type="button" class="btn btn-outline-primary">Print</button>
+                </a>
             </form>
         </div>
     </div>

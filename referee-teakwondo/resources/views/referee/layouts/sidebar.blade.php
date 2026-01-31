@@ -56,11 +56,27 @@
       <span class="nav-link">Navigation</span>
     </li>
     <li class="nav-item menu-items">
-      <a class="nav-link" href="{{ route('zodiac') }}">
+      <a class="nav-link" href="{{ route('referee-panel') }}">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
         </span>
-        <span class="menu-title">User</span>
+        <span class="menu-title">Profile</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('upcoming-match') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Upcoming match</span>
+      </a>
+    </li>
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{ route('past-match') }}">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title">Past match</span>
       </a>
     </li>
 

@@ -13,7 +13,7 @@
                 <strong>📧 Email :</strong> {{ session('swal.email') }}
             </div>
         `,
-        imageUrl: "{{ session('swal.photo') ? asset('userProfile/'.session('swal.photo')) : asset('userProfile/profile.png') }}",
+        imageUrl: "{{ session('swal.image') ? asset('userProfile/'.session('swal.image')) : asset('userProfile/profile.png') }}",
         imageWidth: 120,
         imageHeight: 120,
         imageAlt: 'User Profile',

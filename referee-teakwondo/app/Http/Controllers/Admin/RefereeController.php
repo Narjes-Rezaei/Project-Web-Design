@@ -55,12 +55,12 @@ class RefereeController extends Controller
 
         $referee = new Referee();
 
-        // if($request->hasFile('image')){
-        //     $image = $request->file('image');
-        //     $imageName = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('refereeProfile'), $imageName);
-        //     $referee->image = $imageName;
-        // }
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('refereeProfile'), $imageName);
+            $referee->image = $imageName;
+        }
 
         $referee->referee_id = $this->generateUniqueRefereeCode();
         $referee->name = $request->name;
@@ -100,12 +100,13 @@ class RefereeController extends Controller
 
     function updateReferee($id, UpdateRefereeRequest $request)
     {
+
         // $request->validated();
 
         $referee = Referee::where('referee_id', $id)->first();
 
         if ($request->hasFile('photo')) {
-            $photo = public_path('refereeProfile/' . $referee->photo);
+            $photo = public_path('refereeProfile/' . $referee->image);
             if (File::exists($photo)) {
                 File::delete($photo);
             }
@@ -113,7 +114,7 @@ class RefereeController extends Controller
             $photo = $request->file('photo');
             $photoName = time() . '.' . $photo->getClientOriginalExtension();
             $photo->move(public_path('refereeProfile'), $photoName);
-            $referee->photo = $photoName;
+            $referee->image = $photoName;
         }
 
 

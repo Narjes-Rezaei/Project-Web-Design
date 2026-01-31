@@ -55,6 +55,8 @@ Route::put('/update-profile', [ProfileController::class , 'updateProfile'])->nam
 
 
 
+Route::put('/update-referee-match{id}', [SelectRefereeController::class , 'updateRefereeMatch'])->name('update-referee-match');
+Route::get('/edit-referee-match{id}{match_id}', [SelectRefereeController::class , 'editRefereeMatch'])->name('edit-referee-match');
 
 
 
@@ -66,7 +68,8 @@ Route::put('/update-profile', [ProfileController::class , 'updateProfile'])->nam
 Route::get('/zodiac',[AdminController::class , 'admin'])->name('zodiac');
 
 // match video
-Route::get('/show-match-video',[MatchVideoController::class , 'showMatchVideo'])->name('show-match-video');
+Route::get('/show-match-video',[MatchVideoController::class , 'showMatchVideo'])->name('show-match-video')
+->middleware('permission:show-match-video');
 Route::get('/add-match-video',[MatchVideoController::class , 'addMatchVideo'])->name('add-match-video');
 Route::post('/store-match-video',[MatchVideoController::class , 'storeMatchVideo'])->name('store-match-video');
 Route::get('/edit-match-video{id}',[MatchVideoController::class , 'editMatchVideo'])->name('edit-match-video');
@@ -159,7 +162,7 @@ Route::get('/show-referee', [RefereeController::class , 'showReferee'])->name('s
 Route::get('/add-referee', [RefereeController::class , 'addReferee'])->name('add-referee');
 Route::post('/store-referee', [RefereeController::class , 'storeReferee'])->name('store-referee');
 Route::get('/edit-referee{id}', [RefereeController::class , 'editReferee'])->name('edit-referee');
-Route::put('/update-referee{id}', [RefereeController::class , 'updateReferee'])->name('update-referee');
+Route::put('/updatee-referee{id}', [RefereeController::class , 'updateReferee'])->name('updatee-referee');
 Route::get('/remove-referee/{id}', [RefereeController::class , 'removeReferee'])->name('remove-referee');
 
 //access
@@ -196,8 +199,7 @@ Route::get('/remove-match/{id}', [MatchController::class , 'removeMatch'])->name
 
 // Select Referee
 Route::get('/referee-match{id}', [SelectRefereeController::class , 'refereeMatch'])->name('referee-match');
-Route::post('/store-referee-match', [SelectRefereeController::class , 'storeRefereeMatch'])->name('store-referee-match');
-Route::get('/edit-referee-match{id}', [SelectRefereeController::class , 'editRefereeMatch'])->name('edit-referee-match');
+Route::put('/complet-refree-match{id}', [SelectRefereeController::class , 'completRefreeMatch'])->name('complet-refree-match');
 Route::get('/update-referee-match{id}', [SelectRefereeController::class , 'updateRefereeMatch'])->name('update-referee-match');
 Route::get('/remove-referee-match/{id}/{match_id}', [SelectRefereeController::class , 'removeRefereeMatch'])->name('remove-referee-match');
 
@@ -218,9 +220,19 @@ Route::get('/edit-social-media{id}', [SocialMediaController::class , 'editSocial
 Route::put('/update-social-media{id}', [SocialMediaController::class , 'updateSocialMedia'])->name('update-social-media');
 Route::get('/remove-social-media/{id}', [SocialMediaController::class , 'removeSocialMedia'])->name('remove-social-media');
 
+Route::get('referee-print{id}' , [PanelController::class , 'refereePrint'])->name('referee-print');
+
 
 // Panel Referee
+Route::get('/upcoming-match', [PanelController::class , 'upcomingMatch'])->name('upcoming-match');
+Route::get('/past-match', [PanelController::class , 'pastMatch'])->name('past-match');
+
+Route::get('/team-match{id}', [PanelController::class , 'showTeamMatch'])->name('team-match');
+Route::get('/match-referee{id}', [PanelController::class , 'showRefereeMatch'])->name('match-referee');
+Route::get('/show-details{id}', [PanelController::class , 'showDetailsreferee'])->name('show-details');
+
 Route::get('/referee-panel', [PanelController::class , 'panelReferee'])->name('referee-panel');
+Route::get('/detailse-referee{id}', [PanelController::class , 'detaiseRefereePrint'])->name('detailse-referee');
 
 
 require __DIR__.'/auth.php';

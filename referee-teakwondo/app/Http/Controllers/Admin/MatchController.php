@@ -51,12 +51,18 @@ class MatchController extends Controller
         return redirect()->route('show-match')->with('success', 'Match Added!');
     }
 
-    function editMatch($id)
+    public function editMatch($id)
     {
-        $match = GameMatch::find($id);
+        $match = GameMatch::findOrFail($id);
 
-        return view('admin/match/edit-match')->with('match', $match);
+        return view('admin.match.edit-match', [
+            'match' => $match,
+            'eventRanks' => EventRank::all(),
+            'eventTypes' => EventType::all(),
+            'provinces' => Province::all(),
+        ]);
     }
+
 
 
 
@@ -64,18 +70,16 @@ class MatchController extends Controller
     {
         // $request->validated();
 
-        $match = GameMatch::find($id);
+        $match = GameMatch::findOrFail($id);
 
+        $match->update([
+            'event_title' => $request->event_title,
+            'event_date' => $request->event_date,
+            'event_rank_id' => $request->event_rank,
+            'province_id' => $request->province,
+            'event_type_id' => $request->event_type,
+        ]);
 
-        if ($request->filled('event_title')) {
-            $match->event_title = $request->event_title;
-        }
-
-        if ($request->filled('event_date')) {
-            $match->event_date = $request->event_date;
-        }
-
-        $match->update();
 
         return redirect()->route('show-match')->with('success', 'Match Updated');
     }
@@ -83,6 +87,7 @@ class MatchController extends Controller
     function removeMatch($id)
     {
         $match = GameMatch::find($id);
+
 
         $match->delete();
 

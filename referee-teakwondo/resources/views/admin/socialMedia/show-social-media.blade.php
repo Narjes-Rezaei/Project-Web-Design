@@ -64,7 +64,9 @@
 
                     @if(!$empty)
                     <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
+                        @can('add-social-media')
                         <a href="{{ route('add-social-media') }}" class="btn btn-success">+ Add Social Media</a>
+                        @endcan
                     </div>
                     @endif
                 </div>
@@ -91,12 +93,16 @@
                                 <td> {{ $social->telegram }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
+                                        @can('edit-social-media')
                                         <a href="#">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
+                                        @endcan
+                                        @can('delete-social-media')
                                         <a onclick="alertDelet({{ $social->id }})">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

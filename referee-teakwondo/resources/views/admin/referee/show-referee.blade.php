@@ -66,7 +66,9 @@
                         <input type="text" id="userSearch" class="form-control text-center" placeholder="Search by name and family" style="color: white;" class="form-control todo-list-input">
                     </div>
                     <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
+                        @can('add-referee')
                         <a href="{{ route('add-referee') }}" class="btn btn-success">+ Add Referee</a>
+                        @endcan
                     </div>
                 </div>
 
@@ -94,12 +96,16 @@
                                 <td> {{ $referee->gender->name }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
+                                        @can('edit-referee')
                                         <a href="{{ route('edit-referee', $referee->referee_id) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
+                                        @endcan
+                                        @can('delete-referee')
                                         <a onclick="alertDelet({{ $referee->referee_id }})">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

@@ -58,7 +58,9 @@
         <div class="card-body">
             <div class="flex">
                 <h4 class="card-title">Event Rank Table</h4>
+                @can('add-event-rank')
                 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-event-rank') }}">+ Add Event Rank</a>
+                @endcan
                 <br>
             </div>
             <div class="table-responsive">
@@ -76,8 +78,12 @@
                             <td>{{ $eventRank->name }}</td>
                             <td>
                                 <div class="d-flex justify-content-end gap-2">
+                                    @can('edit-event-rank')
                                     <a href="{{ route('edit-event-rank', $eventRank->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                    @endcan
+                                    @can('delete-event-rank')
                                     <button type="button" onclick="alertDelet({{ $eventRank->id }})" class="btn-sm btn-danger">Delete</button>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

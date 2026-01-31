@@ -91,7 +91,9 @@
                         <input type="text" id="userSearch" class="form-control text-center" placeholder="Search by name and family" style="color: white;" class="form-control todo-list-input">
                     </div>
                     <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
+                        @can('add-user')
                         <a href="{{ route('add-user') }}" class="btn btn-success">+ Add User</a>
+                        @endcan
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -138,12 +140,16 @@
                                         <a href="{{ route('show-user', $user->id) }}">
                                             <button type="button" class="btn btn-outline-info">Show Info</button>
                                         </a>
+                                        @can('edit-user')
                                         <a href="{{ route('edit-user',['id'=>$user->id]) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
+                                        @endcan
+                                        @can('delete-user')
                                         <a onclick="alertDelet({{ $user->id }})">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

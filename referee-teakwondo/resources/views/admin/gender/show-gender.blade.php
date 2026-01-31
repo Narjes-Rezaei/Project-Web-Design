@@ -58,7 +58,9 @@
         <div class="card-body">
             <div class="flex">
                 <h4 class="card-title">Gender table</h4>
+                @can('add-gender')
                 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-gender') }}">+ Add Gender</a>
+                @endcan
                 <br>
             </div>
             <div class="table-responsive">
@@ -76,8 +78,12 @@
                             <td>{{ $gender->name }}</td>
                             <td>
                                 <div class="d-flex justify-content-end gap-2">
+                                    @can('edit-gender')
                                     <a href="{{ route('edit-gender', $gender->id) }}" class="btn btn-sm btn-info">Edit</a>
+                                    @endcan
+                                    @can('delete-gender')
                                     <button type="button" onclick="alertDelet({{ $gender->id }})" class="btn-sm btn-danger">Delete</button>
+                                    @endcan
                                 </div>
                             </td>
                         </tr>

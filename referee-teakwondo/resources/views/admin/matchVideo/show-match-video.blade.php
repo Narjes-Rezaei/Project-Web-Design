@@ -49,7 +49,9 @@
         });
     }
 </script>
+@can('add-match-video')
 <a class="nav-link btn btn-success create-new-button" href="{{ route('add-match-video') }}">+ Add Match Video</a>
+@endcan
 <div class="row">
     @foreach($matchVideos as $matchVideo)
     <div class="col-md-6 col-xl-4 grid-margin stretch-card mt-4">
@@ -67,8 +69,12 @@
             </div>
 
             <div class="card-footer bg-dark border-0 text-center d-flex justify-content-center gap-3">
+                @can('delete-match-video')
                 <button onclick="alertDelet({{ $matchVideo->id }})" class="btn btn-outline-danger px-4">Delete</button>
+                @endcan
+                @can('edit-match-video')
                 <a href="{{ route('edit-match-video', ['id' => $matchVideo->id]) }}" class="btn btn-outline-warning px-4">Edit</a>
+                @endcan
             </div>
         </div>
 

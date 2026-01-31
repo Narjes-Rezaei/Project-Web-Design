@@ -3,7 +3,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <form class="form-inline" method="POST" action="{{ route('update-referee',['id'=>$referee->referee_id]) }}" enctype="multipart/form-data">
+            <form class="form-inline" method="POST" action="{{ route('updatee-referee',['id'=>$referee->referee_id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <label class="sr-only" for="inlineFormInputName2">National Code</label>
@@ -67,7 +67,7 @@
                     <input type="file" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Choise Photo" style="color: white;" name="photo">
 
                     <p>Old Photo</p>
-                    <img src="{{ $referee->photo ? asset('refereeProfile/'.$referee->photo) : asset('refereeProfile/profile.png')}}" alt="Old Photo" style="max-width: 150px; max-height: 150px; border: 1px solid #ccc; border-radius: 8px; object-fit: cover;">
+                    <img src="{{ $referee->image ? asset('refereeProfile/'.$referee->image) : asset('refereeProfile/profile.png')}}" alt="Old Photo" style="max-width: 150px; max-height: 150px; border: 1px solid #ccc; border-radius: 8px; object-fit: cover;">
                     <br>
                     <br>
                     <button type="submit" class="btn btn-primary mb-2" value="Register" name="signup" id="signup">Submit</button>

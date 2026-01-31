@@ -47,7 +47,7 @@
 
     function removeTeam(team_id) {
         let request = new XMLHttpRequest();
-        request.open("GET", `/remove-referee-match/${team_id}`, true);
+        request.open("GET", `/remove-match/${team_id}`, true);
         request.setRequestHeader("X-CSRF-TOKEN", document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
         request.send();
     }
@@ -68,7 +68,9 @@
                         <input type="text" id="userSearch" class="form-control text-center" placeholder="Search by name and family" style="color: white;" class="form-control todo-list-input">
                     </div>
                     <div class="flex-grow-1 d-flex justify-content-md-end justify-content-center">
+                        @can('add-match')
                         <a href="{{ route('add-match') }}" class="btn btn-success">+ Add Match</a>
+                        @endcan
                     </div>
                 </div>
 
@@ -94,18 +96,26 @@
                                 <td> {{ $match->province->name }} </td>
                                 <td>
                                     <div class="d-flex justify-content-end gap-2">
+                                        @can('add-referee')
                                         <a href="{{ route('referee-match',['id'=>$match->id]) }}">
                                             <button type="button" class="btn btn-outline-info">Add Referee</button>
                                         </a>
+                                        @endcan
+                                        @can('add-team')
                                         <a href="{{ route('show-team-match',['id'=>$match->id]) }}">
                                             <button type="button" class="btn btn-outline-info">Add Team</button>
                                         </a>
-                                        <a href="#">
+                                        @endcan
+                                        @can('edit-match')
+                                        <a href="{{ route('edit-match' , ['id'=>$match->id]) }}">
                                             <button type="button" class="btn btn-outline-warning">Edit</button>
                                         </a>
+                                        @endcan
+                                        @can('delete-match')
                                         <a onclick="alertDelet({{ $match->id }})">
                                             <button type="button" class="btn btn-outline-danger">Delete</button>
                                         </a>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

@@ -61,6 +61,8 @@
     <li class="nav-item nav-category">
       <span class="nav-link">Navigation</span>
     </li>
+
+    @can('show-user')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('zodiac') }}">
         <span class="menu-icon">
@@ -69,7 +71,9 @@
         <span class="menu-title">User</span>
       </a>
     </li>
+    @endcan
 
+    @can('show-match-video')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-match-video') }}">
         <span class="menu-icon">
@@ -78,8 +82,10 @@
         <span class="menu-title">Match Video</span>
       </a>
     </li>
+    @endcan
 
 
+    @can('show-our-blog')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-our-blog') }}">
         <span class="menu-icon">
@@ -88,7 +94,10 @@
         <span class="menu-title">Our Blog</span>
       </a>
     </li>
+    @endcan
 
+
+    @can('show-event-rank')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-event-rank') }}">
         <span class="menu-icon">
@@ -97,8 +106,10 @@
         <span class="menu-title">Event Rank</span>
       </a>
     </li>
+    @endcan
 
 
+    @can('show-permission')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-permission') }}">
         <span class="menu-icon">
@@ -107,8 +118,10 @@
         <span class="menu-title">Permission</span>
       </a>
     </li>
+    @endcan
 
-     <li class="nav-item menu-items">
+    @can('show-role')
+    <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-role') }}">
         <span class="menu-icon">
           <i class="mdi mdi-speedometer"></i>
@@ -116,8 +129,10 @@
         <span class="menu-title">Role</span>
       </a>
     </li>
+    @endcan
 
 
+    @can('show-event-type')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-event-type') }}">
         <span class="menu-icon">
@@ -126,9 +141,10 @@
         <span class="menu-title">Event Type</span>
       </a>
     </li>
+    @endcan
 
 
-
+    @can('show-province')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-province') }}">
         <span class="menu-icon">
@@ -137,10 +153,10 @@
         <span class="menu-title">Province</span>
       </a>
     </li>
+    @endcan
 
 
-   
-
+    @can('show-gender')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-gender') }}">
         <span class="menu-icon">
@@ -149,8 +165,9 @@
         <span class="menu-title">Gender</span>
       </a>
     </li>
+    @endcan
 
-
+    @can('show-degree')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-degree') }}">
         <span class="menu-icon">
@@ -159,7 +176,9 @@
         <span class="menu-title">Degree</span>
       </a>
     </li>
+    @endcan
 
+    @can('show-referee')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-referee') }}">
         <span class="menu-icon">
@@ -168,8 +187,9 @@
         <span class="menu-title">Referee</span>
       </a>
     </li>
+    @endcan
 
-
+    @can('show-team')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-team') }}">
         <span class="menu-icon">
@@ -178,8 +198,9 @@
         <span class="menu-title">Team</span>
       </a>
     </li>
+    @endcan
 
-
+    @can('show-members-team')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-member') }}">
         <span class="menu-icon">
@@ -188,8 +209,10 @@
         <span class="menu-title">Member's Team</span>
       </a>
     </li>
+    @endcan
 
 
+    @can('show-match')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-match') }}">
         <span class="menu-icon">
@@ -198,8 +221,9 @@
         <span class="menu-title">Match</span>
       </a>
     </li>
+    @endcan
 
-
+    @can('show-social-media')
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{ route('show-social-media') }}">
         <span class="menu-icon">
@@ -208,6 +232,7 @@
         <span class="menu-title">Social Media</span>
       </a>
     </li>
+    @endcan
 
 
 
