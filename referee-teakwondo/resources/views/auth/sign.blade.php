@@ -693,7 +693,7 @@
                                             </form>
 
                                             <p class="mb-0 mt-4 text-center">
-                                                <a href="#0" class="link" id="forgotLink">Forgot your password?</a>
+                                                <a href="{{ route('reset-password') }}" class="link" id="forgotLink">Forgot your password?</a>
                                             </p>
                                         </div>
                                     </div>
@@ -838,7 +838,7 @@
 
                     if (response.ok) {
                         // موفقیت آمیز
-                        showMessage(signupMessage, data.message || 'ثبت نام با موفقیت انجام شد!', 'success');
+                        showMessage(signupMessage, data.message || 'Registration was successful!', 'success');
                         signupForm.reset();
 
                         // انتقال به صفحه لاگین بعد از 2 ثانیه
@@ -847,7 +847,7 @@
                         }, 1000);
                     } else {
                         // خطا
-                        const errorMessage = data.message || 'خطا در ثبت نام! لطفاً مجدداً تلاش کنید.';
+                        const errorMessage = data.message || 'Error registering! Please try again.';
                         showMessage(signupMessage, errorMessage, 'error');
 
                         // نمایش خطاهای اعتبارسنجی
@@ -858,7 +858,7 @@
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    showMessage(signupMessage, 'خطا در ارتباط با سرور!', 'error');
+                    showMessage(signupMessage, 'Error communicating with the server!', 'error');
                 } finally {
                     // غیرفعال کردن حالت لودینگ
                     signupSubmit.disabled = false;
@@ -895,13 +895,13 @@
 
                     if (response.ok) {
                         // موفقیت آمیز - ریدایرکت به صفحه اصلی
-                        showMessage(loginMessage, data.message || 'ورود با موفقیت انجام شد!', 'success');
+                        showMessage(loginMessage, data.message || 'Login successful!', 'success');
                         setTimeout(() => {
                             window.location.href = data.redirect || '/';
                         }, 1000);
                     } else {
                         // خطا
-                        const errorMessage = data.message || 'خطا در ورود! لطفاً مجدداً تلاش کنید.';
+                        const errorMessage = data.message || 'Error logging in! Please try again.';
                         showMessage(loginMessage, errorMessage, 'error');
 
                         // نمایش خطاهای اعتبارسنجی
@@ -912,7 +912,7 @@
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    showMessage(loginMessage, 'خطا در ارتباط با سرور!', 'error');
+                    showMessage(loginMessage, 'Error communicating with the server!', 'error');
                 } finally {
                     // غیرفعال کردن حالت لودینگ
                     loginSubmit.disabled = false;
